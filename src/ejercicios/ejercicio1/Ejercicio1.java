@@ -12,3 +12,6 @@ public class Ejercicio1 {
 
 }
 
+class Main {
+
+}
