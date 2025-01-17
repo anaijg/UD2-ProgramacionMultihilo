@@ -33,18 +33,22 @@ git branch
 ````
 La rama activa estará marcada con un asterisco *.
 
-**4. Renombrar los ficheros de los ejercicios**  
 
-Renombra los archivos de los ejercicios para incluir tu nombre. Por ejemplo:  
+**4. Haz un push desde tu rama**
+
+Si no funciona simplemente con `git push` haces esto.
+````bash
+git push upstream origin <nombre-de-tu-rama>
+````
+Con eso ya añades tu rama al repositorio  (si eres colaborador del repositorio)
+
+**5. A partir de aquí, para subir los ejercicios trabajas desde tu rama en local haciendo push hacia tu rama en remoto.**
+
+**4. Cuando trabajes en tu rama, renombra los ejercicios antes de subirlos para incluir tu nombre. Por ejemplo:  
 
 Ejercicio1.java → Ejercicio1_Juan.java  
 Ejercicio2.java → Ejercicio2_Juan.java  
 
-Si usas la terminal, puedes hacerlo con:
-````
-mv Ejercicio1.java Ejercicio1_Juan.java
-mv Ejercicio2.java Ejercicio2_Juan.java
-````
 **5. Hacer un commit en tu rama**  
 Añade los archivos renombrados al índice:
 ````bash
@@ -54,25 +58,4 @@ Haz un commit con un mensaje descriptivo:
 ````bash
 git commit -m "Renombrados los archivos de los ejercicios con mi nombre"
 ````
-**6. Subir los cambios a tu repositorio remoto en tu rama**  
-Haz un push de tu rama al repositorio remoto en GitHub:
-````bash
-git push origin juan
-````
-**7. Fusionar tu rama con master**  
-Cambia a la rama master:
-````bash
-git checkout master
-````
-Fusiona tu trabajo de la rama juan con master:
-````bash
-git merge juan
-````
-Sube los cambios a la rama master en tu fork:
-````bash
-git push origin master
-````
-**8. Verificación**  
-
-Asegúrate de que tanto tu rama personal como master están actualizadas en tu fork en GitHub.
-Si todo está correcto, notifica al profesor que has finalizado el ejercicio.
+>Recuerda de vez en cuando cambiar a la la rama master y hacer un pull.
