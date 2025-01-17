@@ -1,7 +1,6 @@
 package ejemplos;
 
-public class EjemploThread extends Thread {
-    // si quisieras personalizar el nombre del hilo tendrías que añadirlo como atributo y pasarlo en el constructor
+public class EjemploRunnable implements Runnable {
 
     @Override
     public void run() {
@@ -18,19 +17,25 @@ public class EjemploThread extends Thread {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
     }
 
     public static void main(String[] args) {
-
-        // Using different constructors of Thread class
-        // Constructor: Thread()
-        EjemploThread hilo1 = new EjemploThread();
+        // 1) Creamos un objeto de la clase que implementa Runnable
+        EjemploRunnable task = new EjemploRunnable();
+        // 2) Creamos un objeto Thread (un hilo pasándole el objeto Runnable en el constructor)
+        // Thread tiene un constructor sobrecargado, así que podemos crear hilos de  varias formas
+        // Constructor: Thread(Runnable target)
+        Thread hilo1 = new Thread(task);
         hilo1.start();
 
+        // Constructor: Thread(Runnable target, String name)
+        Thread hilo2 = new Thread(task, "Hilo 2");
         // Constructor: Thread(String name)
-        EjemploThread hilo2 = new EjemploThread();
+        hilo2.setPriority(5);
         hilo2.start();
 
-        System.out.println("Y el main: " + Thread.currentThread().getName());
+        // Y, ojo, que el hilo main anda siempre por detrás
+        System.out.println(Thread.currentThread().getName());
     }
 }

@@ -36,7 +36,7 @@ public static void main(String[] args) {
     hilo2.start();
 }
 ````
->**Ejemplo 1** CuentaAtrásRunnable.java
+>**Ejemplo 1** EjemploRunnable.java
 
 ### Segunda forma: heredando de `Thread`
 En este caso, creamos una clase que herede de `Thread`, que implícitamente implementa `run()`. 
@@ -61,6 +61,7 @@ Para lanzar un hilo hay que crear un objeto de esa clase y llamar al método `st
         // ...
     }
 ````
+>**Ejemplo2.** `EjemploThread.java`
 
 ### ¿Cuál de las dos formas elegir?
 Ambos métodos son similares y el resultado es el mismo, pero el método preferido debería ser implementar `Runnable`, y pasarle la instancia al constructor de `Thread`, porque
@@ -237,6 +238,16 @@ Al igual que con Random, `0` está incluido en el rango mientras que `100` no.
 También podemos generar otros tipos de datos como `Long` y `Double` llamando a los métodos `nextLong()` y `nextDouble()` de forma similar a los ejemplos anteriores.  
 
 La clase `ThreadLocalRandom` hereda de `Random`, por lo que comparten muchos métodos.
+
+>**Ejemplo 3.** `SimulacionRestaurante.java`
+> Este ejemplo simula un restaurante donde:
+>
+>Cada camarero es un hilo independiente que atiende varias mesas.  
+>Para cada mesa, el camarero realiza tres actividades con tiempos aleatorios:
+>
+>- Atender la mesa (1-5 segundos)
+>- Esperar que la cocina prepare el pedido (2-8 segundos)
+>- Entregar el pedido (1-3 segundos)
 
 ## Gestión de la prioridad de los hilos
 Los hilos heredan la prioridad del padre en Java, pero este valor puede ser cambiado con el método `setPriority()` y con

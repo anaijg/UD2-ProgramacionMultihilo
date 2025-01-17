@@ -3,11 +3,11 @@ package ejemplos;
 import java.util.concurrent.ThreadLocalRandom;
 
 class PrioridadHilo extends Thread {
-    private int c = 0;
+    private int contador = 0;
     private boolean stopHilo = false;
 
     public long getContador () {
-        return c;
+        return contador;
     }
 
     public void pararHilo() {
@@ -16,7 +16,7 @@ class PrioridadHilo extends Thread {
 
     @Override
     public void run() {
-        while (!stopHilo) c++;
+        while (!stopHilo) contador++;
         Thread.currentThread().interrupt();
     }
 }
