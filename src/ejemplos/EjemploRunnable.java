@@ -1,4 +1,4 @@
-package ejercicios.ejercicio1;
+package ejemplos;
 
 public class EjemploRunnable implements Runnable{
 @Override
