@@ -1,13 +1,7 @@
 package ejemplos;
+// para crear un hilo utilizando Runnable, primero creamos una clase que implemente
+public class MyRunnable {
 
-public class MyRunnable implements Runnable{
-    /**
-     * Runs this operation.
-     */
-    @Override
-    public void run() {
-        System.out.println("MyRunnable running");
-    }
 }
 
 class Main {
