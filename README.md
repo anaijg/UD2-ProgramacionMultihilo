@@ -78,3 +78,7 @@ git commit -m "Merged specific file from <source-branch> to <target-branch>"
 ````
 -  Reemplaza `<target-branch>` con el nombre de la rama de destino, `<source-branch>` con el nombre de la rama de origen y `<file-path>` con la ruta del fichero que deseas mergear. `<file-path>` también puede ser la ruta a un paquete, con lo que llevarás a la rama destino el paquete y todas las clases que contiene. 
 
+## Mostrar el listado de ficheros de una rama
+````bash
+git ls-tree -r <branch-name> --name-only
+````
