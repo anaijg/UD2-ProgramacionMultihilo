@@ -51,7 +51,5 @@ public class InfoHilo_Aina implements Runnable {
         // Iniciamos el hilo
         hilo1.start();
 
-        // Esperamos a que el hilo termine
-
     }
 }
