@@ -10,22 +10,25 @@ public class InfoHilo_Aina implements Runnable {
 
         // Mostramos la información del hilo actual
         System.out.println("=== Información del Hilo Actual ===");
-        System.out.println("Nombre del hilo: ");
-        System.out.println("Prioridad del hilo: ");
-        System.out.println("ID del hilo: ");
+        System.out.println("Nombre del hilo: " + hiloActual.getName());
+        System.out.println("Prioridad del hilo: " + hiloActual.getPriority()); // La mayor prioridad es 10 y la menor 1
+        System.out.println("ID del hilo: " + hiloActual.getId());
 
 
         // Contamos el número de hilos activos
-        //int hilosActivos =
-        //Thread[] arrayHilosActivos = ;
+        int hilosActivos = hiloActual.getThreadGroup().activeCount();
+        Thread[] arrayHilosActivos = new Thread[hilosActivos];
+
 
         // Obtenemos todos los hilos activos
-        //int hilosReales = Thread.currentThread().getThreadGroup().enumerate(arrayHilosActivos, true);
+        int hilosReales = Thread.currentThread().getThreadGroup().enumerate(arrayHilosActivos, true);
 
 
         // Mostramos el número total de hilos activos y sus nombres
         System.out.println("\n=== Hilos Activos ===");
-
+        for (int i = 0; i < hilosReales; i++) {
+            System.out.println((i +1) + " " + arrayHilosActivos[i].getName());
+        }
     }
 
     public static void main(String[] args) {
