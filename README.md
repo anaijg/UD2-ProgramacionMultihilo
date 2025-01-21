@@ -69,7 +69,7 @@ Para ver las diferencias entre dos ramas en Git, puedes usar el comando git diff
 git diff <branch1> <branch2>
 ````
 Reemplaza `<branch1>` y `<branch2>` con los nombres de las ramas que deseas comparar. Este comando te mostrará las diferencias entre los archivos en las dos ramas especificadas.
-
+Esto solamente te indica las diferencias en ficheros que están presentes en ambas ramas, pero no si se han añadido ficheros en una rama que no están en la otra. 
 ## Incluir un fichero que está en una rama a otra rama (por ejemplo, de la rama master a la rama que lleva tu nombre)
 ```bash
 git checkout <target-branch>
