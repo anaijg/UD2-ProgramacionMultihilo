@@ -23,7 +23,7 @@ jobs:
         run: |
           curl -s https://api.quotable.io/random | jq -r '.content' | \
           xargs -I{} echo "💡 Inspiración del día: '{}'"
-          
+
       - name: 🕺 Fiesta por el push
         run: |
           echo "💃 ¡Es hora de celebrar este push épico! 💃"
