@@ -19,11 +19,11 @@ jobs:
           echo "🍋 CI Gonzalo está orgulloso de ti."
           echo "✨ Sigue así, ¡eres una máquina del código!"
 
-      - name: "🧠 Depuración: Salida de `curl`"
+      - name: 🦜 Parrot Time
         run: |
-          echo "Salida directa del comando:"
-          curl -s https://api.quotable.io/random
-        
+          echo "🦜 Invocando al loro más épico de la historia:"
+          curl -s parrot.live
+
       - name: 🕺 Fiesta por el push
         run: |
           echo "💃 ¡Es hora de celebrar este push épico! 💃"
