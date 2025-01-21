@@ -5,7 +5,7 @@ package ejemplos;
  * 1) Implementando Runnable <- esta es la (recomendada)
  * 2) Extendiendo Thread
  */
-public class EjemploRunnable implements Runnable{
+public class EjemploRunnableCarlos implements Runnable{
 
     @Override
     public void run() {
@@ -19,7 +19,7 @@ class Main {
     public static void main(String[] args) {
         // Para lanzar un hilo:
         // 1) Creo un objeto de la clase que implementa Runnable
-        EjemploRunnable task1 = new EjemploRunnable();
+        EjemploRunnableCarlos task1 = new EjemploRunnableCarlos();
         // 2) Ahora si, creamos el objeto Thread pasándole en el constructor la tarea "task"
         Thread hilo1 = new Thread(task1);
         Thread hilo2 = new Thread(task1, "hilo negro");
