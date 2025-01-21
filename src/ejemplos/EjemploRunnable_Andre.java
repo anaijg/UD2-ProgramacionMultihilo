@@ -1,10 +1,10 @@
 package ejemplos;
-
 /**
  * Dos formas de crear hilos:
  * 1) Implemntando RUnnable <-La buena
  * 2) Extendiendo Thread
  */
+
 public class EjemploRunnable_Andre implements Runnable {
     @Override
     public void run() {
@@ -12,8 +12,6 @@ public class EjemploRunnable_Andre implements Runnable {
         System.out.println("Hilo corriendo"+ Thread.currentThread().getName());
     }
        // creo la clase donde se ejecutan los hilos
-
-    class Main {
         public static void main(String[] args) {
 //        Para lanzar un hlo:
 //        1)Creo un objeto de la clase que implementa
@@ -30,4 +28,4 @@ public class EjemploRunnable_Andre implements Runnable {
         System.out.println("El Hilo principal   es este :"+Thread.currentThread().getName());
         }
     }
-}
+
