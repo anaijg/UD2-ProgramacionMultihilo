@@ -35,6 +35,7 @@ Crea una clase llamada `Roedor` que tenga los siguientes atributos y métodos:
    - `public void run()`: llama al método `comer()`.
 
 ### Requisitos
+- Para hacer este ejercicio necesitas añadir a tu rama el paquete `utilidades` y sus ficheros, que están en la rama `master` del repositorio remoto.
 - La clase debe estar en el paquete `ejercicios.ejercicio2`.
 - Utiliza el manejo adecuado de excepciones para `InterruptedException` en el método `comer`.
 
