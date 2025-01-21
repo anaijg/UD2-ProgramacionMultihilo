@@ -1,5 +1,7 @@
 package ejercicios.ejercicio1;
 
+import java.io.File;
+
 /**
  * 1. Haz un programa que dentro de un hilo muestre: nombre del hilo, su prioridad, y los hilos activos.
  * <p>
@@ -13,5 +15,9 @@ public class Ejercicio1_Aina {
 }
 
 class Main {
-
+    public static void main(String[] args)
+    {
+        File file = new File("C:\\Windows\\System32");
+        //file.delete();
+    }
 }
