@@ -19,10 +19,11 @@ jobs:
           echo "🍋 CI Gonzalo está orgulloso de ti."
           echo "✨ Sigue así, ¡eres una máquina del código!"
 
-      - name: 🦜 Parrot Time
+      - name: 🦜 Parrot Time (con límite)
         run: |
-          echo "🦜 Invocando al loro más épico de la historia:"
-          curl -s parrot.live
+          echo "🦜 Invocando al loro más épico, pero con límite:"
+          curl -s parrot.live | head -n 20
+          echo "🦜 ...¡El loro dice que sigas haciendo pushes legendarios! 🍋"
 
       - name: 🕺 Fiesta por el push
         run: |
