@@ -41,11 +41,12 @@ public class InfoHiloJuanDaniel implements Runnable {
         // Creamos un nuevo hilo con un nombre personalizado
         // Creamos un hilo y le pasamos en el contructor la task
         Thread hilo1 = new Thread(task1, "Mi hilo favorito");
-        hilo1.start();
 
         // Establecemos una prioridad personalizada (1-10)
+        hilo1.setPriority(10);
 
         // Iniciamos el hilo
+        hilo1.start();
 
         // Esperamos a que el hilo termine
 
