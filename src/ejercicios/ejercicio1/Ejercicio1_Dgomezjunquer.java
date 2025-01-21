@@ -8,10 +8,10 @@ package ejercicios.ejercicio1;
  * Añade lo necesario para que no empiece a ejecutarse un hilo hasta que no haya finalizado el anterior.
  */
 
-public class Ejercicio1_Dgomezjunquer {
-
-}
-
-class Main {
-
+public class Ejercicio1_Dgomezjunquer
+{
+    public static void main(String[] args)
+    {
+        ThreadClass.main(args);
+    }
 }
