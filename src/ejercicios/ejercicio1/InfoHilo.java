@@ -6,6 +6,8 @@ public class InfoHilo implements Runnable {
         // Obtenemos el hilo actual; se refiere al hilo que estamos ejecutando a partir de la clase InfoHilo
         Thread hilo_actual = Thread.currentThread();
 
+
+
         // Mostramos la información del hilo actual
         System.out.println("=== Información del Hilo Actual ===");
         System.out.println("Nombre del hilo: ");
@@ -27,10 +29,13 @@ public class InfoHilo implements Runnable {
     }
 
     public static void main(String[] args) {
+        System.out.println("En el main imprimo Thread.currentThread: "+ Thread.currentThread().getName());
         // Creamos una instancia de nuestra clase
-        System.out.println(Thread.currentThread());
+        InfoHilo task1 = new InfoHilo();
         // Creamos un nuevo hilo con un nombre personalizado
-
+        //2) Creamos un nuevo hilo con un nombre personalizado
+        Thread hilo1 = new Thread(task1,"Mi hilo favorito");
+        hilo1.start();
         // Establecemos una prioridad personalizada (1-10)
 
         // Iniciamos el hilo
