@@ -6,6 +6,7 @@ public class InfoHilo implements Runnable {
         // Obtenemos el hilo actual
 
         // Mostramos la información del hilo actual
+        Thread hiloActual = Thread.currentThread();
         System.out.println("=== Información del Hilo Actual ===");
         System.out.println("Nombre del hilo: ");
         System.out.println("Prioridad del hilo: ");
