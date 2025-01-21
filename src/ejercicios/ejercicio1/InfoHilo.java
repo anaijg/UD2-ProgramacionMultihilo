@@ -3,7 +3,8 @@ package ejercicios.ejercicio1;
 public class InfoHilo implements Runnable {
     @Override
     public void run() {
-        // Obtenemos el hilo actual
+        // Obtenemos el hilo actual; se refiere al hilo que estamos ejecutando a partir de la clase InfoHilo
+        Thread hilo_actual = Thread.currentThread();
 
         // Mostramos la información del hilo actual
         System.out.println("=== Información del Hilo Actual ===");
@@ -27,7 +28,7 @@ public class InfoHilo implements Runnable {
 
     public static void main(String[] args) {
         // Creamos una instancia de nuestra clase
-
+        System.out.println(Thread.currentThread());
         // Creamos un nuevo hilo con un nombre personalizado
 
         // Establecemos una prioridad personalizada (1-10)
