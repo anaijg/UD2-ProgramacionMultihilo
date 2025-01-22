@@ -20,7 +20,7 @@ public class RoedorCarlos implements Runnable {
     public void comer() {
 
         // Mostramos cada roedor con su color, emoji y el tiempo que tarda en comer (recuerda que comenzarán en orden aleatorio al no haberles dado prioridad)
-        System.out.println(color.getCode() + emoji.getEmoji() + nombre + "tarda " + tiempoEnComer + " segundos en alimentarse");
+        System.out.println(color.getCode() + emoji.getEmoji() + nombre + " tarda " + tiempoEnComer + " segundos en alimentarse");
 
         try {
             Thread.sleep(tiempoEnComer * 1000L);
