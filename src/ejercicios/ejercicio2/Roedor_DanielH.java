@@ -36,12 +36,18 @@ public class Roedor_DanielH implements Runnable {
 class Main {
     public static void main(String[] args) {
         Roedor_DanielH jerry = new Roedor_DanielH("Jerry", 5, Color.PURPLE, Emoji.CHIPMUNK);
-        jerry.run();
         Roedor_DanielH mickey = new Roedor_DanielH("Mickey", 6, Color.RED, Emoji.HAMSTER);
-        mickey.run();
         Roedor_DanielH pinky = new Roedor_DanielH("Pinky", 3, Color.CYAN, Emoji.MOUSE);
-        pinky.run();
         Roedor_DanielH fievel = new Roedor_DanielH("Fievel", 4, Color.YELLOW, Emoji.RAT);
-        fievel.run();
+
+        Thread taskJerry = new Thread(jerry);
+        Thread taskMickey = new Thread(mickey);
+        Thread taskPinky = new Thread(pinky);
+        Thread taskFievel = new Thread(fievel);
+        taskJerry.start();
+        taskMickey.start();
+        taskPinky.start();
+        taskFievel.start();
+
     }
 }
