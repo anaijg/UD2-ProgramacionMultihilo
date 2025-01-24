@@ -1,10 +1,10 @@
-package ejercicios.carrera;
+package ejercicios.ejercicio5;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class CarreraCoches {
+public class Ejercicio5_Gonzalo {
     private static boolean carreraFinalizada = false;
 
     public static void main(String[] args) {
@@ -27,7 +27,6 @@ public class CarreraCoches {
         System.out.println("\n¡Comienza la carrera!");
         System.out.println("===================");
 
-        // Iniciar los hilos de los coches
         List<Thread> hilos = new ArrayList<>();
         for (Coche coche : coches) {
             Thread hilo = new Thread(coche);
@@ -35,7 +34,6 @@ public class CarreraCoches {
             hilo.start();
         }
 
-        // Esperar a que termine la carrera
         for (Thread hilo : hilos) {
             try {
                 hilo.join();
@@ -59,7 +57,7 @@ public class CarreraCoches {
 
 class Coche implements Runnable {
     private String nombre;
-    private int velocidad; // Metros por segundo
+    private int velocidad; 
     private int distanciaTotal;
     private int distanciaRecorrida;
 
@@ -72,9 +70,9 @@ class Coche implements Runnable {
 
     @Override
     public void run() {
-        while (distanciaRecorrida < distanciaTotal && !CarreraCoches.isCarreraFinalizada()) {
+        while (distanciaRecorrida < distanciaTotal && !Ejercicio5_Gonzalo.isCarreraFinalizada()) {
             try {
-                Thread.sleep(1000); // Simular un segundo de tiempo
+                Thread.sleep(1000); 
             } catch (InterruptedException e) {
                 System.out.println(nombre + " fue interrumpido.");
             }
@@ -83,19 +81,19 @@ class Coche implements Runnable {
 
             if (distanciaRecorrida >= distanciaTotal) {
                 distanciaRecorrida = distanciaTotal;
-                if (!CarreraCoches.isCarreraFinalizada()) {
-                    CarreraCoches.setCarreraFinalizada();
+                if (!Ejercicio5_Gonzalo.isCarreraFinalizada()) {
+                    Ejercicio5_Gonzalo.setCarreraFinalizada();
                     System.out.println("\n¡" + nombre + " ha ganado la carrera!");
                 }
             }
 
-            imprimirProgreso();
+            mostrarProgreso();
         }
     }
 
-    private void imprimirProgreso() {
+    private void mostrarProgreso() {
         int porcentaje = (distanciaRecorrida * 100) / distanciaTotal;
-        int longitudBarra = 20; // Tamaño de la barra de progreso
+        int longitudBarra = 20; 
         int progreso = (porcentaje * longitudBarra) / 100;
 
         StringBuilder barra = new StringBuilder("[");
