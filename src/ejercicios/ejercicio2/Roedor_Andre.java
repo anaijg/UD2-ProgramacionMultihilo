@@ -1,6 +1,9 @@
 package ejercicios.ejercicio2;
 
 
+import utilidades.Color;
+import utilidades.Emoji;
+
 public class Roedor_Andre implements Runnable {
     String nombre;
     int tiempoEnComer;
@@ -16,14 +19,14 @@ public class Roedor_Andre implements Runnable {
 
 
     public void comer (){
+        System.out.println(color.getCode()+" "+ nombre +" "+ emoji.getEmoji() +"tarda "+tiempoEnComer+"s en comer");
         try{
-            System.out.println(color+" "+nombre+" "+ emoji.getSimbolo()+"empeinza a alimentarse");
             Thread.sleep(tiempoEnComer* 1000L);
-            System.out.println(color+" "+nombre+ " "+emoji.getSimbolo()+"Ha terminado de comer ");
         }catch (InterruptedException e){
-            System.out.println("El Roedor_Andre"+nombre+"fue intemrrupido mientras comia ");
+            System.out.println("El Roedor"+nombre+"fue intemrrupido mientras comia ");
             Thread.currentThread().interrupt();
         }
+        System.out.println(color.getCode()+" "+nombre+ " "+emoji.getEmoji()+"Ha terminado de comer ");
     }
 
     @Override
@@ -32,10 +35,10 @@ public class Roedor_Andre implements Runnable {
     }
 
     public static void main(String[] args) {
-        Roedor_Andre raton1 = new Roedor_Andre("Fievel", 4, Color.RED, Emoji.Raton_Alejandro);
-        Roedor_Andre raton2 = new Roedor_Andre("Jerry", 5, Color.BLACK, Emoji.Raton_johan);
-        Roedor_Andre raton3 = new Roedor_Andre("Pinky", 3, Color.WHITE, Emoji.Raton_Alejandro);
-        Roedor_Andre raton4 = new Roedor_Andre("Mickey", 6, Color.CYAN, Emoji.Raton_johan);
+        Roedor_Andre raton1 = new Roedor_Andre("Fievel", 4, Color.RED, Emoji.RAT);
+        Roedor_Andre raton2 = new Roedor_Andre("Jerry", 5, Color.GREEN, Emoji.MOUSE);
+        Roedor_Andre raton3 = new Roedor_Andre("Pinky", 3, Color.WHITE, Emoji.HAMSTER);
+        Roedor_Andre raton4 = new Roedor_Andre("Mickey", 6, Color.CYAN, Emoji.CHIPMUNK);
 
        Thread f1 = new Thread(raton1, "fievel");
        Thread f2 = new Thread(raton2, "Jerry");
