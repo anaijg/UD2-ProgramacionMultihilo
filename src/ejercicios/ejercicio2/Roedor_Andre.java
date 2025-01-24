@@ -13,6 +13,8 @@ public class Roedor_Andre implements Runnable {
         this.color = color;
         this.emoji = emoji;
     }
+
+
     public void comer (){
         try{
             System.out.println(color+" "+nombre+" "+ emoji.getSimbolo()+"empeinza a alimentarse");
@@ -30,18 +32,20 @@ public class Roedor_Andre implements Runnable {
     }
 
     public static void main(String[] args) {
-        Roedor_Andre raton1 = new Roedor_Andre("Fievel", 4, Color.Gris, Emoji.Raton_Alejandro);
-        Roedor_Andre raton2 = new Roedor_Andre("Jerry", 5, Color.Marroncito, Emoji.Raton_johan);
-        Roedor_Andre raton3 = new Roedor_Andre("Pinky", 3, Color.Blanco, Emoji.Raton_Alejandro);
-        Roedor_Andre raton4 = new Roedor_Andre("Mickey", 6, Color.Negro, Emoji.Raton_johan);
+        Roedor_Andre raton1 = new Roedor_Andre("Fievel", 4, Color.RED, Emoji.Raton_Alejandro);
+        Roedor_Andre raton2 = new Roedor_Andre("Jerry", 5, Color.BLACK, Emoji.Raton_johan);
+        Roedor_Andre raton3 = new Roedor_Andre("Pinky", 3, Color.WHITE, Emoji.Raton_Alejandro);
+        Roedor_Andre raton4 = new Roedor_Andre("Mickey", 6, Color.CYAN, Emoji.Raton_johan);
 
-        Thread hilo1 = new Thread(raton1);
-        Thread hilo2 = new Thread(raton2);
-        Thread hilo3 = new Thread(raton3);
-        Thread hilo4 = new Thread(raton4);
-        hilo1.start();
-        hilo2.start();
-        hilo3.start();
-        hilo4.start();
+       Thread f1 = new Thread(raton1, "fievel");
+       Thread f2 = new Thread(raton2, "Jerry");
+       Thread f3 = new Thread(raton3, "Pinky");
+       Thread f4 = new Thread(raton4, "Mickey");
+        f1.start();
+        f2.start();
+        f3.start();
+        f4.start();
+
+
     }
 }
