@@ -16,6 +16,10 @@ public class Roedor implements Runnable{
         this.emoji = emoji;
     }
 
+    public int getTiempoEnComer() {
+        return tiempoEnComer;
+    }
+
     public void comer(){
         try {
             System.out.println(color.getCode() + "El ratón " + nombre + emoji.getEmoji() + " ha empezado a alimentarse.");
@@ -31,25 +35,5 @@ public class Roedor implements Runnable{
     @Override
     public void run() {
         this.comer();
-    }
-}
-
-class MainRoedores{
-    public static void main(String[] args) {
-        // creamos los ratones
-        Roedor taskFievel = new Roedor("Fievel", 4, Color.BLACK, Emoji.RAT);
-        Roedor taskJerry = new Roedor("Jerry", 5, Color.GREEN, Emoji.CHIPMUNK);
-        Roedor taskPinky = new Roedor("Pinky", 3, Color.RED, Emoji.MOUSE);
-        Roedor taskMickey = new Roedor("Mickey", 6, Color.YELLOW, Emoji.HAMSTER);
-        Thread hiloFievel = new Thread(taskFievel);
-        Thread hiloJerry = new Thread(taskJerry);
-        Thread hiloPinky = new Thread(taskPinky);
-        Thread hiloMickey = new Thread(taskMickey);
-
-        hiloFievel.start();
-        hiloJerry.start();
-        hiloPinky.start();
-        hiloMickey.start();
-
     }
 }
