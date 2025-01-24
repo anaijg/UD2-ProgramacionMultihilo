@@ -41,7 +41,7 @@ public class Roedor_Aina_Clases implements Runnable {
 class MainRoedores_Aina {
     public static void main(String[] args) throws InterruptedException {
         esperar();
-        comer();
+        //comer();
     }
 
     public static void comer() {
@@ -54,6 +54,11 @@ class MainRoedores_Aina {
         Thread hiloJ = new Thread(Jerry);
         Thread hiloP = new Thread(Pinky);
         Thread hiloM = new Thread(Mickey);
+
+        hiloF.setPriority(8);
+        hiloJ.setPriority(6);
+        hiloP.setPriority(10);
+        hiloM.setPriority(4);
 
         hiloF.start();
         hiloJ.start();
@@ -71,17 +76,18 @@ class MainRoedores_Aina {
         Thread hiloP = new Thread(Pinky);
         Thread hiloM = new Thread(Mickey);
 
+
         hiloF.start();
         hiloF.join();
 
         hiloJ.start();
-        hiloJ.join();
+        hiloF.join();
 
         hiloP.start();
-        hiloP.join();
+        hiloF.join();
 
         hiloM.start();
-        hiloM.join();
+        hiloF.join();
 
     }
 }
