@@ -1,0 +1,115 @@
+package ejercicios.carrera;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class CarreraCoches {
+    private static boolean carreraFinalizada = false;
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Introduce la distancia del circuito (metros): ");
+        int distancia = scanner.nextInt();
+
+        System.out.print("Introduce el número de coches (máximo 4): ");
+        int numeroCoches = Math.min(scanner.nextInt(), 4);
+
+        List<Coche> coches = new ArrayList<>();
+
+        for (int i = 1; i <= numeroCoches; i++) {
+            System.out.print("Introduce la velocidad del coche " + i + " (metros/segundo): ");
+            int velocidad = scanner.nextInt();
+            coches.add(new Coche("Coche " + i, velocidad, distancia));
+        }
+
+        System.out.println("\n¡Comienza la carrera!");
+        System.out.println("===================");
+
+        // Iniciar los hilos de los coches
+        List<Thread> hilos = new ArrayList<>();
+        for (Coche coche : coches) {
+            Thread hilo = new Thread(coche);
+            hilos.add(hilo);
+            hilo.start();
+        }
+
+        // Esperar a que termine la carrera
+        for (Thread hilo : hilos) {
+            try {
+                hilo.join();
+            } catch (InterruptedException e) {
+                System.out.println("El hilo principal fue interrumpido.");
+            }
+        }
+
+        System.out.println("\n¡Carrera finalizada!");
+        scanner.close();
+    }
+
+    public static synchronized boolean isCarreraFinalizada() {
+        return carreraFinalizada;
+    }
+
+    public static synchronized void setCarreraFinalizada() {
+        carreraFinalizada = true;
+    }
+}
+
+class Coche implements Runnable {
+    private String nombre;
+    private int velocidad; // Metros por segundo
+    private int distanciaTotal;
+    private int distanciaRecorrida;
+
+    public Coche(String nombre, int velocidad, int distanciaTotal) {
+        this.nombre = nombre;
+        this.velocidad = velocidad;
+        this.distanciaTotal = distanciaTotal;
+        this.distanciaRecorrida = 0;
+    }
+
+    @Override
+    public void run() {
+        while (distanciaRecorrida < distanciaTotal && !CarreraCoches.isCarreraFinalizada()) {
+            try {
+                Thread.sleep(1000); // Simular un segundo de tiempo
+            } catch (InterruptedException e) {
+                System.out.println(nombre + " fue interrumpido.");
+            }
+
+            distanciaRecorrida += velocidad;
+
+            if (distanciaRecorrida >= distanciaTotal) {
+                distanciaRecorrida = distanciaTotal;
+                if (!CarreraCoches.isCarreraFinalizada()) {
+                    CarreraCoches.setCarreraFinalizada();
+                    System.out.println("\n¡" + nombre + " ha ganado la carrera!");
+                }
+            }
+
+            imprimirProgreso();
+        }
+    }
+
+    private void imprimirProgreso() {
+        int porcentaje = (distanciaRecorrida * 100) / distanciaTotal;
+        int longitudBarra = 20; // Tamaño de la barra de progreso
+        int progreso = (porcentaje * longitudBarra) / 100;
+
+        StringBuilder barra = new StringBuilder("[");
+        for (int i = 0; i < longitudBarra; i++) {
+            if (i < progreso) {
+                barra.append("=");
+            } else if (i == progreso) {
+                barra.append(">");
+            } else {
+                barra.append(" ");
+            }
+        }
+        barra.append("] ").append(porcentaje).append("%");
+
+        System.out.println(nombre + " " + barra);
+    }
+}
