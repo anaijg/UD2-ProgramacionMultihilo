@@ -3,13 +3,13 @@ package ejercicios.ejercicio3;
 import utilidades.Color;
 import utilidades.Emoji;
 
-public class Roedor_Aina implements Runnable{
+public class Roedor_Aina_Espera implements Runnable{
     private String nombre;
     private int tiempoEnComer;
     private Color color;
     private Emoji emoji;
 
-    public Roedor_Aina(String nombre, int tiempoEnComer, Color color, Emoji emoji) {
+    public Roedor_Aina_Espera(String nombre, int tiempoEnComer, Color color, Emoji emoji) {
         this.nombre = nombre;
         this.tiempoEnComer = tiempoEnComer;
         this.color = color;
@@ -33,10 +33,10 @@ public class Roedor_Aina implements Runnable{
     }
 
     public static void main(String[] args) throws InterruptedException {
-        ejercicios.ejercicio2.Roedor_Aina Fievel = new ejercicios.ejercicio2.Roedor_Aina("Fievel", 4, Color.BLACK, Emoji.RAT);
-        ejercicios.ejercicio2.Roedor_Aina Jerry = new ejercicios.ejercicio2.Roedor_Aina("Jerry", 5, Color.RED, Emoji.CHIPMUNK);
-        ejercicios.ejercicio2.Roedor_Aina Pinky = new ejercicios.ejercicio2.Roedor_Aina("Pinky", 3, Color.PURPLE, Emoji.MOUSE);
-        ejercicios.ejercicio2.Roedor_Aina Mickey = new ejercicios.ejercicio2.Roedor_Aina("Mickey", 6, Color.WHITE, Emoji.HAMSTER);
+        Roedor_Aina_Espera Fievel = new Roedor_Aina_Espera("Fievel", 4, Color.BLACK, Emoji.RAT);
+        Roedor_Aina_Espera Jerry = new Roedor_Aina_Espera("Jerry", 5, Color.RED, Emoji.CHIPMUNK);
+        Roedor_Aina_Espera Pinky = new Roedor_Aina_Espera("Pinky", 3, Color.PURPLE, Emoji.MOUSE);
+        Roedor_Aina_Espera Mickey = new Roedor_Aina_Espera("Mickey", 6, Color.WHITE, Emoji.HAMSTER);
 
         Thread hiloF = new Thread(Fievel);
         Thread hiloJ = new Thread(Jerry);
