@@ -7,7 +7,7 @@ public class Ejercicio1_Gonzalo implements Runnable {
         System.out.println("=== Información del Hilo Actual ===");
         System.out.println("Nombre del hilo: " + hiloActual.getName());
         System.out.println("Prioridad del hilo: " + hiloActual.getPriority());
-        System.out.println("ID del hilo: " + hiloActual.getId());
+        System.out.println("ID del hilo: " + hiloActual.threadId());
 
         ThreadGroup grupoActual = hiloActual.getThreadGroup();
         int hilosActivos = grupoActual.activeCount();
@@ -29,7 +29,7 @@ public class Ejercicio1_Gonzalo implements Runnable {
 
         Thread hiloPersonalizado = new Thread(tarea, "HiloPersonalizado");
 
-        hiloPersonalizado.setPriority(Thread.NORM_PRIORITY + 2); // Prioridad alta
+        hiloPersonalizado.setPriority(10);
 
         hiloPersonalizado.start();
 
