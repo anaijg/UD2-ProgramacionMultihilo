@@ -1,9 +1,9 @@
 package ejercicios.ejercicio4;
 
-import ejercicios.ejercicio2.Roedor_Aina;
-import ejercicios.ejercicio3.Roedor_Aina_Espera;
 import utilidades.Color;
 import utilidades.Emoji;
+
+import java.util.Scanner;
 
 public class Roedor_Aina_Clases implements Runnable {
     private String nombre;
@@ -40,8 +40,41 @@ public class Roedor_Aina_Clases implements Runnable {
 }
 class MainRoedores_Aina {
     public static void main(String[] args) throws InterruptedException {
-        esperar();
-        //comer();
+        Scanner scanner = new Scanner(System.in);
+        int opcion;
+
+        do {
+            System.out.println("\n--- MENÚ ---");
+            System.out.println("1. Roedores maleducados");
+            System.out.println("2. Roedores educados");
+            System.out.println("0. Salir");
+
+            opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    comer();
+                    break;
+                case 2:
+                    try {
+                        esperar();
+                    } catch (InterruptedException e) {
+                        System.out.println("Error: " + e.getMessage());
+                    }
+                    break;
+                case 0:
+                    System.out.println("Saliendo del programa");
+                    break;
+                default:
+                    System.out.println("Error, esa opción no esta disponible introduce una opción disponible");
+                    System.out.println("\n--- MENÚ ---");
+                    System.out.println("1. Roedores maleducados");
+                    System.out.println("2. Roedores educados");
+                    System.out.println("0. Salir");
+            }
+        } while (opcion != 0);
+
+        scanner.close();
     }
 
     public static void comer() {
@@ -71,23 +104,23 @@ class MainRoedores_Aina {
         Roedor_Aina_Clases Jerry = new Roedor_Aina_Clases("Jerry", 5, Color.RED, Emoji.CHIPMUNK);
         Roedor_Aina_Clases Pinky = new Roedor_Aina_Clases("Pinky", 3, Color.PURPLE, Emoji.MOUSE);
         Roedor_Aina_Clases Mickey = new Roedor_Aina_Clases("Mickey", 6, Color.WHITE, Emoji.HAMSTER);
+
         Thread hiloF = new Thread(Fievel);
         Thread hiloJ = new Thread(Jerry);
         Thread hiloP = new Thread(Pinky);
         Thread hiloM = new Thread(Mickey);
 
-
         hiloF.start();
         hiloF.join();
 
         hiloJ.start();
-        hiloF.join();
+        hiloJ.join();
 
         hiloP.start();
-        hiloF.join();
+        hiloP.join();
 
         hiloM.start();
-        hiloF.join();
-
+        hiloM.join();
     }
 }
+
