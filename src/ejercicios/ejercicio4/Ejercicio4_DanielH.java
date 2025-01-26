@@ -1,4 +1,3 @@
-//Author: Daniel Hernández Garcia
 package ejercicios.ejercicio4;
 
 import ejercicios.ejercicio2.Roedor_DanielH;

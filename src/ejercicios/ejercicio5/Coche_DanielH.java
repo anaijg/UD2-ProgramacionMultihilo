@@ -1,4 +1,3 @@
-//@Author: Daniel Hernandez Garcia
 package ejercicios.ejercicio5;
 
 import java.util.ArrayList;
