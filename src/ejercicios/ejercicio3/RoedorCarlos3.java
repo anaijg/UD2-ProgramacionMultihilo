@@ -3,7 +3,7 @@ package ejercicios.ejercicio3;
 import utilidades.Color;
 import utilidades.Emoji;
 
-public class RoedorCarlos implements Runnable {
+public class RoedorCarlos3 implements Runnable {
 
     private String nombre; //nombre del ratón
     private int tiempoEnComer; //tiempo en segundos que tarda en comer
@@ -11,7 +11,7 @@ public class RoedorCarlos implements Runnable {
     private Emoji emoji; //el emoji que representa al ratón (utiliza el enum Emoji)
 
     // Constructor:
-    public RoedorCarlos(String nombre, int tiempoEnComer, Color color, Emoji emoji) {
+    public RoedorCarlos3(String nombre, int tiempoEnComer, Color color, Emoji emoji) {
         this.nombre = nombre;
         this.tiempoEnComer = tiempoEnComer;
         this.color = color;
@@ -46,10 +46,10 @@ public class RoedorCarlos implements Runnable {
 
         // Creamos los objetos de tipo RoedorCarlos (las instrucciones que ejecutará):
 
-        ejercicios.ejercicio2.RoedorCarlos fievel = new ejercicios.ejercicio2.RoedorCarlos("Fievel", 4, Color.BLUE, Emoji.RAT);
-        ejercicios.ejercicio2.RoedorCarlos jerry = new ejercicios.ejercicio2.RoedorCarlos("Jerry", 5, Color.RED, Emoji.CHIPMUNK);
-        ejercicios.ejercicio2.RoedorCarlos pinky = new ejercicios.ejercicio2.RoedorCarlos("Pinky", 3, Color.GREEN, Emoji.MOUSE);
-        ejercicios.ejercicio2.RoedorCarlos mickey = new ejercicios.ejercicio2.RoedorCarlos("Mickey", 6, Color.YELLOW, Emoji.HAMSTER);
+        RoedorCarlos3 fievel = new RoedorCarlos3("Fievel", 4, Color.BLUE, Emoji.RAT);
+        RoedorCarlos3 jerry = new RoedorCarlos3("Jerry", 5, Color.RED, Emoji.CHIPMUNK);
+        RoedorCarlos3 pinky = new RoedorCarlos3("Pinky", 3, Color.GREEN, Emoji.MOUSE);
+        RoedorCarlos3 mickey = new RoedorCarlos3("Mickey", 6, Color.YELLOW, Emoji.HAMSTER);
 
 
         // Creamos los hilos
