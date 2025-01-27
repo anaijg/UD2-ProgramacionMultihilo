@@ -17,6 +17,9 @@ public class InfoHilo implements Runnable{
 
         InfoHilo task1 = new InfoHilo();
         Thread hiloa1 = new Thread(task1,"Mi hilo fav");
+
+        hiloa1.setPriority(0);
+        
         hiloa1.start();
     }
 }
