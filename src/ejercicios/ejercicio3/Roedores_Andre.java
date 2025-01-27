@@ -1,6 +1,5 @@
 package ejercicios.ejercicio3;
 
-import ejercicios.ejercicio2.Roedor_Andre;
 import utilidades.Color;
 import utilidades.Emoji;
 
@@ -35,10 +34,10 @@ public class Roedores_Andre implements Runnable{
     }
 
     public static void main(String[] args) {
-        Roedor_Andre raton1 = new Roedor_Andre("Fievel", 3, Color.RED, Emoji.RAT);
-        Roedor_Andre raton2 = new Roedor_Andre("Jerry", 4, Color.GREEN, Emoji.MOUSE);
-        Roedor_Andre raton3 = new Roedor_Andre("Pinky", 5, Color.WHITE, Emoji.HAMSTER);
-        Roedor_Andre raton4 = new Roedor_Andre("Mickey", 6, Color.CYAN, Emoji.CHIPMUNK);
+        Roedores_Andre raton1 = new Roedores_Andre("Fievel", 3, Color.RED, Emoji.RAT);
+        Roedores_Andre raton2 = new Roedores_Andre("Jerry", 4, Color.GREEN, Emoji.MOUSE);
+        Roedores_Andre raton3 = new Roedores_Andre("Pinky", 5, Color.WHITE, Emoji.HAMSTER);
+        Roedores_Andre raton4 = new Roedores_Andre("Mickey", 6, Color.CYAN, Emoji.CHIPMUNK);
 
         Thread f1 = new Thread(raton1, "fievel");
         Thread f2 = new Thread(raton2, "Jerry");
