@@ -1,22 +1,26 @@
-package ejercicios.ejercicio4_davidT;
+package ejercicios.ejercicio3_davidT;
 
-import ejercicios.ejercicio4_davidT.entity.RoedorEntity;
 import utilidades.Color;
 import utilidades.Emoji;
 
 public class Roedor implements Runnable{
-    private final RoedorEntity roe ;
+    private String nombre;
+    private int tiempoEnComer;
+    private Color color;
+    private Emoji emoji;
 
     public Roedor(String nombre, int tiempoEnComer, Color color, Emoji emoji) {
-        this.roe = new RoedorEntity(nombre, tiempoEnComer, color, emoji);
+        this.nombre = nombre;
+        this.tiempoEnComer = tiempoEnComer;
+        this.color = color;
+        this.emoji = emoji;
     }
-
 
     public void comer(){
         try {
-            System.out.println(roe.getColor() + "El ratón " + roe.getNombre() + roe.getEmoji() + " ha empezado a alimentarse.");
-            Thread.sleep(roe.getTiempoEnComer() * (long) 1000);
-            System.out.println(roe.getColor() + "El ratón " + roe.getNombre() + roe.getEmoji() + " ha terminado de alimentarse.");
+            System.out.println(color.getCode() + "El ratón " + nombre + emoji.getEmoji() + " ha empezado a alimentarse.");
+            Thread.sleep(tiempoEnComer * (long) 1000);
+            System.out.println(color.getCode() + "El ratón " + nombre + emoji.getEmoji() + " ha terminado de alimentarse.");
         } catch (InterruptedException e) {
             System.out.println("Interrupted exception del método sleep.");
             /* Clean up whatever needs to be handled before interrupting  */
@@ -26,7 +30,7 @@ public class Roedor implements Runnable{
 
     @Override
     public void run() {
-        comer();
+        this.comer();
     }
 }
 
@@ -42,18 +46,10 @@ class MainRoedores{
         Thread hiloPinky = new Thread(taskPinky);
         Thread hiloMickey = new Thread(taskMickey);
 
-        try{
-            hiloFievel.start();
-            hiloFievel.join();
-            hiloJerry.start();
-            hiloJerry.join();
-            hiloPinky.start();
-            hiloPinky.join();
-            hiloMickey.start();
-            hiloMickey.join();
-        }catch (Exception ex){
-            System.out.println(ex.getMessage());
-        }
+        hiloFievel.start();
+        hiloJerry.start();
+        hiloPinky.start();
+        hiloMickey.start();
 
     }
 }
