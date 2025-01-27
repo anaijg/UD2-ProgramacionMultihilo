@@ -43,6 +43,12 @@ public class InfoHilo implements Runnable {
         hilo1.setPriority(8);
         // Iniciamos el hilo
         hilo1.start();
+        // esperamos a que el hilo termine
+        try {
+            hilo1.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
 
     }
