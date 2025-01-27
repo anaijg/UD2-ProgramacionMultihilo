@@ -1,6 +1,6 @@
 package Ejemplos;
 
-public class EjemploRunnable implements Runnable {
+public class EjemploRunnable_Javier implements Runnable {
 
     @Override
     public void run() {
@@ -10,7 +10,7 @@ public class EjemploRunnable implements Runnable {
 
 class Main {
     public static void main(String[] args) {
-        EjemploRunnable task1 = new EjemploRunnable();
+        EjemploRunnable_Javier task1 = new EjemploRunnable_Javier();
 
 
     }

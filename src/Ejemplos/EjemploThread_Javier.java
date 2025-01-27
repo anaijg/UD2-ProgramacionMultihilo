@@ -1,6 +1,6 @@
 package Ejemplos;
 
-public class EjemploThread extends Thread {
+public class EjemploThread_Javier extends Thread {
     @Override
     public void run() {
         System.out.println("hilo corriendo " + Thread.currentThread().getName());
@@ -9,10 +9,10 @@ public class EjemploThread extends Thread {
 
 class Main2 {
     public static void main(String[] args) {
-        EjemploThread hilo1 = new EjemploThread();
+        EjemploThread_Javier hilo1 = new EjemploThread_Javier();
         hilo1.start();
 
-        EjemploThread hilo2 = new EjemploThread();
+        EjemploThread_Javier hilo2 = new EjemploThread_Javier();
         hilo2.start();
 
         System.out.println("Hilo principal: " + Thread.currentThread().getName());
