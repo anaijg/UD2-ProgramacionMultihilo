@@ -38,6 +38,14 @@ public class InfoHilo2 implements Runnable{
 
         // Iniciamos el hilo
         hilo1.start();
+
+        // Esperamos a que termine
+        try {
+            hilo1.join();
+
+        }catch (InterruptedException e) {
+            System.out.println("Ha habido un error " + e.getMessage());
+        }
     }
 }
 

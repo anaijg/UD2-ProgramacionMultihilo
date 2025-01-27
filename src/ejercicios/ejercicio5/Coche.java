@@ -8,6 +8,7 @@ public class Coche implements Runnable{
     private int distanciaTotal;
     private int progreso;
     private int numCoche;
+    private static boolean finalizada = false;
 
     public Coche(int numCoche, int velocidad, int distanciaTotal) {
         this.numCoche = numCoche;
@@ -18,8 +19,7 @@ public class Coche implements Runnable{
     @Override
     public void run() {
 
-        while (progreso < distanciaTotal) {
-
+        while (progreso < distanciaTotal && !finalizada) {
 
             try {
                 Thread.sleep(1000);
@@ -28,6 +28,14 @@ public class Coche implements Runnable{
             } catch (InterruptedException e) {
                 System.out.println("Llamando al safety car");
             }
+        }
+
+        if (progreso >= distanciaTotal && !finalizada) {
+            finalizada = true;
+            System.out.println("Coche " + numCoche + " ha ganado la carrera!");
+        }
+        if (!finalizada) {
+            mostrarProgreso();
         }
 
     }

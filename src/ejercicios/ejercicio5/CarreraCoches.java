@@ -41,7 +41,7 @@ public class CarreraCoches {
             } catch (InterruptedException e) {
                 System.out.println("Salida de pista!!");
             }
-            System.out.println("La carrera ha terminado");
+
         }
     }
 
