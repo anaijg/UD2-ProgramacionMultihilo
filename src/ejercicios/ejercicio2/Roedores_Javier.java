@@ -44,13 +44,11 @@ class Main {
         Roedores_Javier pinky = new Roedores_Javier("Pinky", 3, Color.BLUE, Emoji.MOUSE);
         Roedores_Javier mickey = new Roedores_Javier("Mickey", 6, Color.GREEN, Emoji.HAMSTER);
 
-        // Crear hilos para cada roedor
         Thread hiloFievel = new Thread(fievel);
         Thread hiloJerry = new Thread(jerry);
         Thread hiloPinky = new Thread(pinky);
         Thread hiloMickey = new Thread(mickey);
 
-        // Iniciar los hilos
         hiloFievel.start();
         hiloJerry.start();
         hiloPinky.start();
