@@ -30,6 +30,7 @@ public class RoedorSisa implements Runnable{
 
     @Override
     public void run() {
+
         this.comer();
     }
 }
