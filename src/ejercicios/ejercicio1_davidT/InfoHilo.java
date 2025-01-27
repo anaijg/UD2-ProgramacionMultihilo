@@ -1,4 +1,4 @@
-package ejercicios.ejercicio1;
+package ejercicios.ejercicio1_davidT;
 
 public class InfoHilo implements Runnable {
 

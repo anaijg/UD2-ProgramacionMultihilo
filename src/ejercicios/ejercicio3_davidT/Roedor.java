@@ -1,4 +1,4 @@
-package ejercicios.ejercicio2;
+package ejercicios.ejercicio3_davidT;
 
 import utilidades.Color;
 import utilidades.Emoji;
@@ -50,6 +50,16 @@ class MainRoedores{
         hiloJerry.start();
         hiloPinky.start();
         hiloMickey.start();
+        //No hace falta meter el star en el try
+        try{
+            hiloFievel.join();
+            hiloJerry.join();
+            hiloPinky.join();
+            hiloMickey.join();
+        }catch (InterruptedException ex){
+            System.out.println("El proceso fue interrupido " + ex.getMessage());
+        }
 
+        System.out.println("Todos los hamsters estan llenos");
     }
 }

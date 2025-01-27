@@ -1,4 +1,4 @@
-package ejercicios.ejercicio3_davidT;
+package ejercicios.ejercicio4_davidT;
 
 import utilidades.Color;
 import utilidades.Emoji;
@@ -20,6 +20,8 @@ public class Roedor implements Runnable{
         try {
             System.out.println(color.getCode() + "El ratón " + nombre + emoji.getEmoji() + " ha empezado a alimentarse.");
             Thread.sleep(tiempoEnComer * (long) 1000);
+            //ASIGNO SEGUN EL TIEMPO LA PRIORIDAD CUANTO MAS TIEMPO MENOS PRIORIDAD TIENE
+            Thread.currentThread().setPriority(tiempoEnComer);
             System.out.println(color.getCode() + "El ratón " + nombre + emoji.getEmoji() + " ha terminado de alimentarse.");
         } catch (InterruptedException e) {
             System.out.println("Interrupted exception del método sleep.");
