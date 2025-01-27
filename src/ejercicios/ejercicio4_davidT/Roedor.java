@@ -1,6 +1,6 @@
-package ejercicios.ejercicio3;
+package ejercicios.ejercicio4_davidT;
 
-import ejercicios.ejercicio3.entity.RoedorEntity;
+import ejercicios.ejercicio4_davidT.entity.RoedorEntity;
 import utilidades.Color;
 import utilidades.Emoji;
 
@@ -42,10 +42,18 @@ class MainRoedores{
         Thread hiloPinky = new Thread(taskPinky);
         Thread hiloMickey = new Thread(taskMickey);
 
-        hiloFievel.start();
-        hiloJerry.start();
-        hiloPinky.start();
-        hiloMickey.start();
+        try{
+            hiloFievel.start();
+            hiloFievel.join();
+            hiloJerry.start();
+            hiloJerry.join();
+            hiloPinky.start();
+            hiloPinky.join();
+            hiloMickey.start();
+            hiloMickey.join();
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
 
     }
 }
