@@ -3,19 +3,20 @@ package ejercicios.ejercicio2;
 import utilidades.Color;
 import utilidades.Emoji;
 
-public class Roedor implements Runnable{
+public class RoedorJohan implements Runnable{
     private String nombre;
     private int tiempoEnComer;
     private Color color;
     private Emoji emoji;
 
-    public Roedor(String nombre, int tiempoEnComer, Color color, Emoji emoji) {
+    public RoedorJohan(String nombre, int tiempoEnComer, Color color, Emoji emoji) {
         this.nombre = nombre;
         this.tiempoEnComer = tiempoEnComer;
         this.color = color;
         this.emoji = emoji;
     }
 
+    // Método que simula la acción de comer del ratón con un tiempo de espera de tiempoEnComer segundos.
     public void comer(){
         try {
             System.out.println(color.getCode() + "El ratón " + nombre + emoji.getEmoji() + " ha empezado a alimentarse.");
@@ -28,19 +29,56 @@ public class Roedor implements Runnable{
         }
     }
 
+
+    // implementamos el método run de la interfaz Runnable que ejecuta el método comer.
     @Override
     public void run() {
         this.comer();
+    }
+
+    public int getTiempoEnComer() {
+        return tiempoEnComer;
+    }
+
+    public void setTiempoEnComer(int tiempoEnComer) {
+        this.tiempoEnComer = tiempoEnComer;
+    }
+
+    public Emoji getEmoji() {
+        return emoji;
+    }
+
+    public void setEmoji(Emoji emoji) {
+        this.emoji = emoji;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+
+        this.nombre = nombre;
     }
 }
 
 class MainRoedores{
     public static void main(String[] args) {
         // creamos los ratones
-        Roedor taskFievel = new Roedor("Fievel", 4, Color.BLACK, Emoji.RAT);
-        Roedor taskJerry = new Roedor("Jerry", 5, Color.GREEN, Emoji.CHIPMUNK);
-        Roedor taskPinky = new Roedor("Pinky", 3, Color.RED, Emoji.MOUSE);
-        Roedor taskMickey = new Roedor("Mickey", 6, Color.YELLOW, Emoji.HAMSTER);
+        RoedorJohan taskMickey = new RoedorJohan("Mickey", 6, Color.YELLOW, Emoji.HAMSTER);
+        RoedorJohan taskFievel = new RoedorJohan("Fievel", 4, Color.BLACK, Emoji.RAT);
+        RoedorJohan taskPinky = new RoedorJohan("Pinky", 3, Color.RED, Emoji.MOUSE);
+        RoedorJohan taskJerry = new RoedorJohan("Jerry", 5, Color.GREEN, Emoji.CHIPMUNK);
+
+
         Thread hiloFievel = new Thread(taskFievel);
         Thread hiloJerry = new Thread(taskJerry);
         Thread hiloPinky = new Thread(taskPinky);
