@@ -27,6 +27,7 @@ public class Coche implements Runnable {
             }
         }
     }
+
     public void avanzar(){
         progreso += velocidad;
         if (progreso >= distancia){
@@ -40,6 +41,7 @@ public class Coche implements Runnable {
         System.out.println(nombre + " " + porcentaje + "%");
     }
 
+
     public boolean terminado2(){
         return terminado;
     }
@@ -49,4 +51,6 @@ public class Coche implements Runnable {
     public String getNombre(){
         return nombre;
     }
+
+
 }
