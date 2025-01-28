@@ -16,10 +16,10 @@ public class CarreraCoches{
         if(!(numCoches<1 || numCoches>4)){
 
             ArrayList<Coche> coches = new ArrayList<>();
-            for(i=1;i<numCoches;i++){
-                System.out.println("Introduce la velocidad del coche "+i+ "metros/segundo:");
+            for(i=0;i<numCoches;i++){
+                System.out.println("Introduce la velocidad del coche"+(i+1)+ " metros/segundo:");
                 metrosSeg= sc.nextInt();
-                coches.add(new Coche("Coche"+i,metrosSeg,metrosCircui));
+                coches.add(new Coche("Coche"+(i+1),metrosSeg,metrosCircui));
             }
             ArrayList<Thread> hilos = new ArrayList<>();
             for(Coche coche: coches){
