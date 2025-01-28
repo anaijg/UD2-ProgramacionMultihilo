@@ -34,6 +34,10 @@ public class Roedores_Javier implements Runnable {
     public void run() {
         comer();
     }
+
+    public int getTiempoEnComer() {
+        return tiempoEnComer;
+    }
 }
 
 class Main {
