@@ -1,6 +1,6 @@
 # Compartir datos entre hilos
 Los hilos que pertenecen al mismo proceso comparten la memoria común (denominada `Heap`) pueden comunicarse utilizando datos compartidos en esta memoria. Para poder acceder a los mismos datos desde varios hilos, cada hilo debe tener una referencia a estos datos (**a través de un objeto**). 
-![img_2.png](img_2.png)
+![img_2.png](../teoria/img_2.png)
 
 Varios hilos de un único proceso tienen referencias a objetos en el `Heap`.
 
