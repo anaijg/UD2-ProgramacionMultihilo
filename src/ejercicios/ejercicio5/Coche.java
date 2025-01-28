@@ -38,8 +38,21 @@ public class Coche implements Runnable {
 
     public void mostrarProgreso(){
         int porcentaje = (int) ((double) progreso / distancia * 100);
-        System.out.println(nombre + " " + porcentaje + "%");
+        int barrasProgreso = porcentaje / 5;
+        StringBuilder barraProgreso = new StringBuilder("[");
+        for (int i = 0; i < 20; i++) {
+            if (i < barrasProgreso) {
+                barraProgreso.append("=");
+            } else if (i == barrasProgreso) {
+                barraProgreso.append(">");
+            } else {
+                barraProgreso.append(" ");
+            }
+        }
+        barraProgreso.append("] ").append(porcentaje).append("%");
+        System.out.println(nombre + " " + barraProgreso);
     }
+
 
 
     public boolean terminado2(){
