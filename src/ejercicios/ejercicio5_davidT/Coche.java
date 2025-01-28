@@ -26,6 +26,7 @@ public class Coche implements Runnable{
                 System.out.println("El coche " + this.nombre + " se ha estrellado");
             }
         }
+
         if (progreso >= distanciaCircuito && !fin) {
             fin = true;
             System.out.println("Coche " + this.nombre + " ha ganado la carrera!");

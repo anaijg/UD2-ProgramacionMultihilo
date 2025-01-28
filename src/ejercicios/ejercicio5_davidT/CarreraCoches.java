@@ -10,6 +10,7 @@ public class CarreraCoches{
 
         System.out.println("Introduce la distancia del circuito");
         metrosCircui = sc.nextInt();
+
         System.out.println("Introduce el numero de coches:(maximo 4)");
         numCoches = sc.nextInt();
 
@@ -21,6 +22,7 @@ public class CarreraCoches{
                 metrosSeg= sc.nextInt();
                 coches.add(new Coche("Coche"+(i+1),metrosSeg,metrosCircui));
             }
+
             ArrayList<Thread> hilos = new ArrayList<>();
             for(Coche coche: coches){
                 Thread hilo = new Thread(coche);

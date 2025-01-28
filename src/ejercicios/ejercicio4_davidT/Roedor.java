@@ -18,13 +18,16 @@ public class Roedor implements Runnable{
         this.color = color;
         this.emoji = emoji;
     }
+    public Roedor(){
+
+    }
 
     public void comer(){
         try {
             //ASIGNO SEGUN EL TIEMPO LA PRIORIDAD CUANTO MAS TIEMPO MENOS PRIORIDAD TIENE
             //NO ME ESTA ASGINANDO LA PRIORIDAD--- EL OBJETIVO ES ASIGNARLE LA PRIORIDAD QUE ES DEL 1 AL 10, CREO UN ARRAY
             // Y LUEGO DEL TIMEPO QUE TARDE EN COMER LE RESTO 1, SE LO PONGO DE INDICE DEL ARRAY Y SE LE ASIGAN PRIORIDAD EN RELACION AL TIEMPO
-            int[] prioridades = {1,2,3,4,5,6,7,8,9,10};
+            int[] prioridades = {10,9,8,7,6,5,4,3,2,1};
             Thread.currentThread().setPriority(prioridades[tiempoEnComer-1]);
             System.out.println(color.getCode() + "El ratón " + nombre + emoji.getEmoji() + " ha empezado a alimentarse.");
             Thread.sleep(tiempoEnComer * (long) 1000);
@@ -53,6 +56,7 @@ class MainRoedores{
         Roedor taskJerry = new Roedor("Jerry", 5, Color.GREEN, Emoji.CHIPMUNK);
         Roedor taskPinky = new Roedor("Pinky", 3, Color.RED, Emoji.MOUSE);
         Roedor taskMickey = new Roedor("Mickey", 6, Color.YELLOW, Emoji.HAMSTER);
+
 //        Thread hiloFievel = new Thread(taskFievel);
 //        Thread hiloJerry = new Thread(taskJerry);
 //        Thread hiloPinky = new Thread(taskPinky);
