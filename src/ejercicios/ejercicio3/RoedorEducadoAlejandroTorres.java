@@ -1,15 +1,15 @@
-package ejercicios.ejercicio2;
+package ejercicios.ejercicio3;
 
 import utilidades.Color;
 import utilidades.Emoji;
 
-public class Roedor implements Runnable{
+public class RoedorEducadoAlejandroTorres implements Runnable{
     private String nombre;
     private int tiempoEnComer;
     private Color color;
     private Emoji emoji;
 
-    public Roedor(String nombre, int tiempoEnComer, Color color, Emoji emoji) {
+    public RoedorEducadoAlejandroTorres(String nombre, int tiempoEnComer, Color color, Emoji emoji) {
         this.nombre = nombre;
         this.tiempoEnComer = tiempoEnComer;
         this.color = color;
@@ -31,25 +31,34 @@ public class Roedor implements Runnable{
     @Override
     public void run() {
         this.comer();
+
     }
 }
 
 class MainRoedores{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-        Roedor taskFievel = new Roedor("Fievel", 4, Color.BLACK, Emoji.RAT);
-        Roedor taskJerry = new Roedor("Jerry", 5, Color.GREEN, Emoji.CHIPMUNK);
-        Roedor taskPinky = new Roedor("Pinky", 3, Color.RED, Emoji.MOUSE);
-        Roedor taskMickey = new Roedor("Mickey", 6, Color.YELLOW, Emoji.HAMSTER);
+        RoedorEducadoAlejandroTorres taskFievel = new RoedorEducadoAlejandroTorres("Fievel", 4, Color.BLACK, Emoji.RAT);
+        RoedorEducadoAlejandroTorres taskJerry = new RoedorEducadoAlejandroTorres("Jerry", 5, Color.GREEN, Emoji.CHIPMUNK);
+        RoedorEducadoAlejandroTorres taskPinky = new RoedorEducadoAlejandroTorres("Pinky", 3, Color.RED, Emoji.MOUSE);
+        RoedorEducadoAlejandroTorres taskMickey = new RoedorEducadoAlejandroTorres("Mickey", 6, Color.YELLOW, Emoji.HAMSTER);
         Thread hiloFievel = new Thread(taskFievel);
         Thread hiloJerry = new Thread(taskJerry);
         Thread hiloPinky = new Thread(taskPinky);
         Thread hiloMickey = new Thread(taskMickey);
 
+
         hiloFievel.start();
+        hiloFievel.join();
+
         hiloJerry.start();
+        hiloJerry.join();
+
         hiloPinky.start();
+        hiloPinky.join();
+
         hiloMickey.start();
+        hiloMickey.join();
 
     }
 }
