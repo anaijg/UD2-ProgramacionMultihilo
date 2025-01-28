@@ -1,21 +1,26 @@
 package ejercicios.ejercicio3_davidT;
-import ejercicios.ejercicio3_davidT.entity.RoedorEntity;
+
 import utilidades.Color;
 import utilidades.Emoji;
 
 public class Roedor implements Runnable{
-    private final ejercicios.ejercicio4_davidT.entity.RoedorEntity roe ;
+    private String nombre;
+    private int tiempoEnComer;
+    private Color color;
+    private Emoji emoji;
 
     public Roedor(String nombre, int tiempoEnComer, Color color, Emoji emoji) {
-        this.roe = new ejercicios.ejercicio4_davidT.entity.RoedorEntity(nombre, tiempoEnComer, color, emoji);
+        this.nombre = nombre;
+        this.tiempoEnComer = tiempoEnComer;
+        this.color = color;
+        this.emoji = emoji;
     }
-
 
     public void comer(){
         try {
-            System.out.println(roe.getColor() + "El ratón " + roe.getNombre() + roe.getEmoji() + " ha empezado a alimentarse.");
-            Thread.sleep(roe.getTiempoEnComer() * (long) 1000);
-            System.out.println(roe.getColor() + "El ratón " + roe.getNombre() + roe.getEmoji() + " ha terminado de alimentarse.");
+            System.out.println(color.getCode() + "El ratón " + nombre + emoji.getEmoji() + " ha empezado a alimentarse.");
+            Thread.sleep(tiempoEnComer * (long) 1000);
+            System.out.println(color.getCode() + "El ratón " + nombre + emoji.getEmoji() + " ha terminado de alimentarse.");
         } catch (InterruptedException e) {
             System.out.println("Interrupted exception del método sleep.");
             /* Clean up whatever needs to be handled before interrupting  */
@@ -25,34 +30,36 @@ public class Roedor implements Runnable{
 
     @Override
     public void run() {
-        comer();
+        this.comer();
     }
 }
 
 class MainRoedores{
     public static void main(String[] args) {
         // creamos los ratones
-        ejercicios.ejercicio4_davidT.Roedor taskFievel = new ejercicios.ejercicio4_davidT.Roedor("Fievel", 4, Color.BLACK, Emoji.RAT);
-        ejercicios.ejercicio4_davidT.Roedor taskJerry = new ejercicios.ejercicio4_davidT.Roedor("Jerry", 5, Color.GREEN, Emoji.CHIPMUNK);
-        ejercicios.ejercicio4_davidT.Roedor taskPinky = new ejercicios.ejercicio4_davidT.Roedor("Pinky", 3, Color.RED, Emoji.MOUSE);
-        ejercicios.ejercicio4_davidT.Roedor taskMickey = new ejercicios.ejercicio4_davidT.Roedor("Mickey", 6, Color.YELLOW, Emoji.HAMSTER);
+        Roedor taskFievel = new Roedor("Fievel", 4, Color.BLACK, Emoji.RAT);
+        Roedor taskJerry = new Roedor("Jerry", 5, Color.GREEN, Emoji.CHIPMUNK);
+        Roedor taskPinky = new Roedor("Pinky", 3, Color.RED, Emoji.MOUSE);
+        Roedor taskMickey = new Roedor("Mickey", 6, Color.YELLOW, Emoji.HAMSTER);
         Thread hiloFievel = new Thread(taskFievel);
         Thread hiloJerry = new Thread(taskJerry);
         Thread hiloPinky = new Thread(taskPinky);
         Thread hiloMickey = new Thread(taskMickey);
 
+        hiloFievel.start();
+        hiloJerry.start();
+        hiloPinky.start();
+        hiloMickey.start();
+        //No hace falta meter el star en el try
         try{
-            hiloFievel.start();
             hiloFievel.join();
-            hiloJerry.start();
             hiloJerry.join();
-            hiloPinky.start();
             hiloPinky.join();
-            hiloMickey.start();
             hiloMickey.join();
-        }catch (Exception ex){
-            System.out.println(ex.getMessage());
+        }catch (InterruptedException ex){
+            System.out.println("El proceso fue interrupido " + ex.getMessage());
         }
 
+        System.out.println("Todos los hamsters estan llenos");
     }
 }
