@@ -68,8 +68,6 @@ public class E4_Javier {
         Scanner sc = new Scanner(System.in);
         System.out.println("\n                    La parrillada de Mickey Mause                    \n");
 
-        simularCarga();
-
         boolean salir = false;
 
         do {
@@ -106,21 +104,6 @@ public class E4_Javier {
     }
 
 
-    // simula una carga en pantalla con un mensaje por amor al arte.
-    private static void simularCarga() {
-        String[] mensajes = {"\n           ",".", ".", ".", ".", ".", ".", "  ","Pro", "ces", "ando","  ", ".", ".", ".", ".", ".", ".", " \n"};
-        try {
-            for (String mensaje : mensajes) {
-                System.out.print(mensaje);
-                Thread.sleep(500);
-            }
-            System.out.println();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    // Metodo que muestra las opciones del menu.
     private static void mostrarOpcionesMenu() {
         System.out.println("1. roedores no esperan a que finalice el anterior para empezar");
         System.out.println("2. roedores esperan a que finalice el anterior para empezar");
