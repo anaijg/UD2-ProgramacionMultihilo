@@ -35,7 +35,7 @@ class Coche implements Runnable{
     }
 
 
-    // Método run que ejecuta la carrera del coche y nos dice el ganador.
+    // Método run lo modificamos con @Override para que ejecute la carrera del coche y nos diga el ganador.
     @Override
     public void run() {
         while (distanciaRecorrida < distanciaTotal && !campeon) {
@@ -62,7 +62,8 @@ class Coche implements Runnable{
         terminado = true;
     }
 
-    // Método que muestra el progreso de la carrera.
+    // Método que muestra el progreso de la carrera con un StringBuilder y le ponemos la distancia visual del la carrera en 50 carecteres,
+    //  y Si distanciaRecorrida es 25 y distanciaTotal es 100, el porcentaje seria 25%..
     public void mostrarProgreso() {
         int porcentaje = Math.min((int) ((double) distanciaRecorrida / distanciaTotal * 100), 100);
         int barras = porcentaje / 2;

@@ -25,7 +25,10 @@ public class RoedoresSHC {
     }
 
 
-    // Método que ordena los ratones por tiempo en comer y los guarda en un array de Threads.
+    // El método ordenarPorTiempoEnComer organiza un array de objetos RoedorJohan en función del tiempo que
+    // cada uno tarda en comer. Se utiliza el método Arrays.sort con un Comparator personalizado que compara
+    // los tiempos de dos RoedorJohan. Después de ordenar, los objetos se guardan en un array de RoedorJohan
+    // organizados de menor ah mayor
     public static void ordenarPorTiempoEnComer(RoedorJohan[] ratones) {
         Arrays.sort(ratones, new Comparator<RoedorJohan>() {
             @Override
@@ -35,7 +38,8 @@ public class RoedoresSHC {
         });
     }
 
-    // Metodo que convierte los ratones en Threads y le asigna una prioridad a cada uno segun su tiempo en comer.
+    // Metodo que convierte las ratonera en Threads y le asigna una prioridad a cada uno segun su tiempo en comer
+    // y devuelve el Arrys de Threads organizados.
     public static Thread[] covertirAThread(RoedorJohan[] ratones) {
         Thread[] ratonera = new Thread[ratones.length];
         for (int i = 0; i < ratones.length; i++) {
@@ -80,7 +84,8 @@ public class RoedoresSHC {
         }
     }
 
-    // Metodo que muestra el menu de opciones.
+    // Metodo que muestra el menu de opciones y hace un tiempo de carga que no sirve para nada solo por amor al arte y gestiona
+    // los movimientos y lo que desea el usuario.
     public static void Menu(RoedorJohan[] ratones) {
         Scanner sc = new Scanner(System.in);
         System.out.println("\n                    Diviendinos ah Ratatouille                    \n");
@@ -123,7 +128,7 @@ public class RoedoresSHC {
     }
 
 
-    // simula una carga en pantalla con un mensaje por amor al arte.
+    // simula una carga en pantalla con un mensaje, esto no sirve para nada solo lo hice por amor al arte.
     private static void simularCarga() {
         String[] mensajes = {"\n           ",".", ".", ".", ".", ".", ".", "  ","Car", "gando ", "este", " gran ", "prog", "rama","  ", ".", ".", ".", ".", ".", ".", " \n"};
         try {

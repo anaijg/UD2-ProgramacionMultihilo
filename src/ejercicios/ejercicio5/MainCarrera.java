@@ -5,10 +5,13 @@ import java.util.*;
 public class MainCarrera {
 
     public static void main(String[] args) {
-        queDeSea();
+        loQueDiosQuiera();
     }
 
-    // Método que obtiene la configuración de la carrera y la información de los pilotos agregada por el usuario.
+    // Método que obtiene la configuración de la carrera y la información de los pilotos y la cantidad de cohces
+    // y agregados por el usuario y los mete en un arraysHasMap Finalmente, el método devuelve una lista de dos
+    // HashMap, uno que contiene la clave "distanciaTotal" con su respectivo valor y otro que contiene la clave
+    // "numCoches" con su valor correspondiente..
     public static ArrayList<HashMap<String, Integer>>  obtenerConfiguracionCarrera(){
         Scanner scanner = new Scanner(System.in);
 
@@ -30,7 +33,9 @@ public class MainCarrera {
         ));
     }
 
-    // Método que crea los pilotos y los guarda en un array y los muestra por pantalla.
+    // Este método permite la creación de pilotos utilizando la información ingresada por el usuario.
+    // La información recopilada es almacenada en un array de tipo Piloto, el cual es devuelto por el
+    // método al finalizar el proceso.
     public static Piloto[] crearPilotos(int numCoches) {
         Piloto[] pilotos = new Piloto[numCoches];
         Scanner scanner = new Scanner(System.in);
@@ -49,7 +54,9 @@ public class MainCarrera {
         return pilotos;
     }
 
-    // Método que crea los coches y los guarda en un array y los muestra por pantalla.
+    // Este método permite la creación de Coches utilizando la información ingresada por el usuario.
+    // La información recopilada es almacenada en un array de tipo Coches, el cual es devuelto por el
+    // método al finalizar el proceso
     public static Coche[] crearCoches(int numCoches, int distanciaTotal, Piloto[] pilotos) {
         Coche[] coches = new Coche[numCoches];
         Scanner scanner = new Scanner(System.in);
@@ -68,7 +75,12 @@ public class MainCarrera {
         return coches;
     }
 
-   // Comienza la Acciion
+   //                                      Comienza la Acciion
+   // El método iniciarCarrera inicia una carrera de coches utilizando hilos para simular el movimiento de cada coche.
+   // El método recibe un array de coches que participarán en la carrera y crea un hilo para cada uno de ellos.
+   // Luego, inicia cada uno de los hilos y muestra el progreso de la carrera en la consola.
+   // El método se encarga de verificar si la carrera ha finalizado y determinar al ganador,
+   //  así como de mostrar el podio y los resultados finales de la carrera.
     public static void iniciarCarrera(Coche[] coches) {
         Thread[] hilos = new Thread[coches.length];
         for (int i = 0; i < coches.length; i++) {
@@ -131,8 +143,10 @@ public class MainCarrera {
         }
     }
 
-    // Método que muestra el menú de opciones para el usuario.
-    public static void queDeSea (){
+    // Este método muestra un menú de opciones para que el usuario pueda elegir entre crear sus propios coches y pilotos,
+    // utilizar una configuración predefinida, o salir del programa. Dependiendo de la elección del usuario, el método
+    // ejecuta las acciones correspondientes y finalmente inicia la carrera.
+    public static void  loQueDiosQuiera (){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Bienvenido a la carrera de coches");
         System.out.println("1. Organizar tu propia carrera");
