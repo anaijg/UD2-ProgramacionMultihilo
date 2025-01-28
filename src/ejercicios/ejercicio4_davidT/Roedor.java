@@ -29,9 +29,9 @@ public class Roedor implements Runnable{
             // Y LUEGO DEL TIMEPO QUE TARDE EN COMER LE RESTO 1, SE LO PONGO DE INDICE DEL ARRAY Y SE LE ASIGAN PRIORIDAD EN RELACION AL TIEMPO
             int[] prioridades = {10,9,8,7,6,5,4,3,2,1};
             Thread.currentThread().setPriority(prioridades[tiempoEnComer-1]);
-            System.out.println(color.getCode() + "El ratón " + nombre + emoji.getEmoji() + " ha empezado a alimentarse.");
+            System.out.println(color.getCode() + "El ratón " + nombre + emoji.getEmoji() + " ha empezado a alimentarse."+ color.RESET.getCode());
             Thread.sleep(tiempoEnComer * (long) 1000);
-            System.out.println(color.getCode() + "El ratón " + nombre + emoji.getEmoji() + " ha terminado de alimentarse.");
+            System.out.println(color.getCode() + "El ratón " + nombre + emoji.getEmoji() + " ha terminado de alimentarse."+ color.RESET.getCode());
         } catch (InterruptedException e) {
             System.out.println("Interrupted exception del método sleep.");
             /* Clean up whatever needs to be handled before interrupting  */
