@@ -1,4 +1,4 @@
-package ejercicios.ejercicio3.entity;
+package ejercicios.ejercicio3_davidT.entity;
 
 import utilidades.Color;
 import utilidades.Emoji;

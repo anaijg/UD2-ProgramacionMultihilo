@@ -1,12 +1,15 @@
 package ejercicios.ejercicio4_davidT;
 
-import ejercicios.ejercicio4_davidT.entity.RoedorEntity;
+import utilidades.Color;
+import utilidades.Emoji;
+import ejercicios.ejercicio3_davidT.entity.RoedorEntity;
 import utilidades.Color;
 import utilidades.Emoji;
 
-public class Roedor implements Runnable{
-    private final RoedorEntity roe ;
+import java.util.Scanner;
 
+public class Roedor implements Runnable{
+    private final ejercicios.ejercicio3_davidT.entity.RoedorEntity roe ;
     public Roedor(String nombre, int tiempoEnComer, Color color, Emoji emoji) {
         this.roe = new RoedorEntity(nombre, tiempoEnComer, color, emoji);
     }
@@ -31,17 +34,45 @@ public class Roedor implements Runnable{
 }
 
 class MainRoedores{
+    public static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
         // creamos los ratones
-        Roedor taskFievel = new Roedor("Fievel", 4, Color.BLACK, Emoji.RAT);
-        Roedor taskJerry = new Roedor("Jerry", 5, Color.GREEN, Emoji.CHIPMUNK);
-        Roedor taskPinky = new Roedor("Pinky", 3, Color.RED, Emoji.MOUSE);
-        Roedor taskMickey = new Roedor("Mickey", 6, Color.YELLOW, Emoji.HAMSTER);
+        ejercicios.ejercicio3_davidT.Roedor taskFievel = new ejercicios.ejercicio3_davidT.Roedor("Fievel", 4, Color.BLACK, Emoji.RAT);
+        ejercicios.ejercicio3_davidT.Roedor taskJerry = new ejercicios.ejercicio3_davidT.Roedor("Jerry", 5, Color.GREEN, Emoji.CHIPMUNK);
+        ejercicios.ejercicio3_davidT.Roedor taskPinky = new ejercicios.ejercicio3_davidT.Roedor("Pinky", 3, Color.RED, Emoji.MOUSE);
+        ejercicios.ejercicio3_davidT.Roedor taskMickey = new ejercicios.ejercicio3_davidT.Roedor("Mickey", 6, Color.YELLOW, Emoji.HAMSTER);
         Thread hiloFievel = new Thread(taskFievel);
         Thread hiloJerry = new Thread(taskJerry);
         Thread hiloPinky = new Thread(taskPinky);
         Thread hiloMickey = new Thread(taskMickey);
 
+        menu(hiloFievel,hiloJerry,hiloPinky,hiloMickey);
+
+    }
+    public static void menu(Thread hiloFievel,Thread hiloJerry,Thread hiloPinky,Thread hiloMickey){
+        System.out.println("-------MENU-------");
+        System.out.println("1- Hamster educados");
+        System.out.println("2- Hamster salvajes");
+        System.out.println("0 - SALIR");
+        int num = scan.nextInt();
+
+        switch (num){
+            case 1:
+                esperar(hiloFievel,hiloJerry,hiloPinky,hiloMickey);
+                break;
+            case 2:
+                atacar(hiloFievel,hiloJerry,hiloPinky,hiloMickey);
+                break;
+            case 0:
+                System.out.println("SALIENDO...");
+                break;
+            default:
+                System.out.println("Opcion no valida");
+                break;
+        }
+
+    }
+    public static void esperar(Thread hiloFievel,Thread hiloJerry,Thread hiloPinky,Thread hiloMickey){
         try{
             hiloFievel.start();
             hiloFievel.join();
@@ -51,9 +82,22 @@ class MainRoedores{
             hiloPinky.join();
             hiloMickey.start();
             hiloMickey.join();
+
+            menu(hiloFievel,hiloJerry,hiloPinky,hiloMickey);
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }
+    }
+    public static void atacar(Thread hiloFievel,Thread hiloJerry,Thread hiloPinky,Thread hiloMickey){
+        try{
+            hiloFievel.start();
+            hiloJerry.start();
+            hiloPinky.start();
+            hiloMickey.start();
 
+            menu(hiloFievel,hiloJerry,hiloPinky,hiloMickey);
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
     }
 }

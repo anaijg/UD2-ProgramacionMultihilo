@@ -1,14 +1,13 @@
-package ejercicios.ejercicio3;
-
-import ejercicios.ejercicio3.entity.RoedorEntity;
+package ejercicios.ejercicio3_davidT;
+import ejercicios.ejercicio3_davidT.entity.RoedorEntity;
 import utilidades.Color;
 import utilidades.Emoji;
 
 public class Roedor implements Runnable{
-    private final RoedorEntity roe ;
+    private final ejercicios.ejercicio4_davidT.entity.RoedorEntity roe ;
 
     public Roedor(String nombre, int tiempoEnComer, Color color, Emoji emoji) {
-        this.roe = new RoedorEntity(nombre, tiempoEnComer, color, emoji);
+        this.roe = new ejercicios.ejercicio4_davidT.entity.RoedorEntity(nombre, tiempoEnComer, color, emoji);
     }
 
 
@@ -33,10 +32,10 @@ public class Roedor implements Runnable{
 class MainRoedores{
     public static void main(String[] args) {
         // creamos los ratones
-        Roedor taskFievel = new Roedor("Fievel", 4, Color.BLACK, Emoji.RAT);
-        Roedor taskJerry = new Roedor("Jerry", 5, Color.GREEN, Emoji.CHIPMUNK);
-        Roedor taskPinky = new Roedor("Pinky", 3, Color.RED, Emoji.MOUSE);
-        Roedor taskMickey = new Roedor("Mickey", 6, Color.YELLOW, Emoji.HAMSTER);
+        ejercicios.ejercicio4_davidT.Roedor taskFievel = new ejercicios.ejercicio4_davidT.Roedor("Fievel", 4, Color.BLACK, Emoji.RAT);
+        ejercicios.ejercicio4_davidT.Roedor taskJerry = new ejercicios.ejercicio4_davidT.Roedor("Jerry", 5, Color.GREEN, Emoji.CHIPMUNK);
+        ejercicios.ejercicio4_davidT.Roedor taskPinky = new ejercicios.ejercicio4_davidT.Roedor("Pinky", 3, Color.RED, Emoji.MOUSE);
+        ejercicios.ejercicio4_davidT.Roedor taskMickey = new ejercicios.ejercicio4_davidT.Roedor("Mickey", 6, Color.YELLOW, Emoji.HAMSTER);
         Thread hiloFievel = new Thread(taskFievel);
         Thread hiloJerry = new Thread(taskJerry);
         Thread hiloPinky = new Thread(taskPinky);
