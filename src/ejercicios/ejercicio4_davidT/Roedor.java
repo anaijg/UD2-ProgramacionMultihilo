@@ -22,6 +22,8 @@ public class Roedor implements Runnable{
     public void comer(){
         try {
             //ASIGNO SEGUN EL TIEMPO LA PRIORIDAD CUANTO MAS TIEMPO MENOS PRIORIDAD TIENE
+            //NO ME ESTA ASGINANDO LA PRIORIDAD--- EL OBJETIVO ES ASIGNARLE LA PRIORIDAD QUE ES DEL 1 AL 10, CREO UN ARRAY
+            // Y LUEGO DEL TIMEPO QUE TARDE EN COMER LE RESTO 1, SE LO PONGO DE INDICE DEL ARRAY Y SE LE ASIGAN PRIORIDAD EN RELACION AL TIEMPO
             int[] prioridades = {1,2,3,4,5,6,7,8,9,10};
             Thread.currentThread().setPriority(prioridades[tiempoEnComer-1]);
             System.out.println(color.getCode() + "El ratón " + nombre + emoji.getEmoji() + " ha empezado a alimentarse.");
@@ -56,7 +58,7 @@ class MainRoedores{
 //        Thread hiloPinky = new Thread(taskPinky);
 //        Thread hiloMickey = new Thread(taskMickey);
 
-        ArrayList<Roedor> roedores = new ArrayList<Roedor>();
+        ArrayList<Roedor> roedores = new ArrayList<>();
 
         roedores.add(taskFievel);
         roedores.add(taskJerry);
@@ -85,6 +87,9 @@ class MainRoedores{
             case 0:
                 System.out.println("Saliendo ....");
                 break;
+            default:
+                System.out.println("Opcion no valida... Apagando...bip...bip");
+                break;
         }
 
     }
@@ -112,15 +117,14 @@ class MainRoedores{
     }
     public static void salvajes(ArrayList<Roedor> roedores){
         ArrayList<Thread> hilos = new ArrayList<>();
-
         for (Roedor roedor : roedores) {
             Thread hilo = new Thread(roedor);
             hilos.add(hilo);
         }
-
         for (Thread hilo : hilos) {
             hilo.start();
         }
+        //Se pone antes el menu que los procesos y el menu sale con el color amarillo..
         menu(roedores);
     }
 }
