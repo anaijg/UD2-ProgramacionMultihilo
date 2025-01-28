@@ -113,8 +113,8 @@ public class RoedorCarlos4 implements Runnable {
         Thread hPinky = new Thread(pinky, "pinky");
         Thread hMickey = new Thread(mickey, "mickey");
 
-        hPinky.setPriority(4);
         hFievel.setPriority(3);
+        hPinky.setPriority(4);
         hJerry.setPriority(2);
         hMickey.setPriority(1);
 
