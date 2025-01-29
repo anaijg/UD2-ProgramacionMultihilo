@@ -1,4 +1,4 @@
-package ejercicios.ejercicio1;
+package ejercicios.ejercicio1IBM;
 
 public class InfoHilo implements Runnable {
     @Override
