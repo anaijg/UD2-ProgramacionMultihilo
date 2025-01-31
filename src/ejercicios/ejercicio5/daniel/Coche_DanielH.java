@@ -1,8 +1,4 @@
-package ejercicios.ejercicio5;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+package ejercicios.ejercicio5.daniel;
 
 public class Coche_DanielH extends Thread {
     private final String nombre;

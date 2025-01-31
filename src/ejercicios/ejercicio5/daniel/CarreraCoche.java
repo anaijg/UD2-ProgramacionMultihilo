@@ -1,5 +1,5 @@
 //Author: Daniel Hernández Garcia
-package ejercicios.ejercicio5;
+package ejercicios.ejercicio5.daniel;
 
 import java.util.ArrayList;
 import java.util.List;
