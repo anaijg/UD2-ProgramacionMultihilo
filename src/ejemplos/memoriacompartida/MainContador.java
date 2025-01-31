@@ -23,9 +23,11 @@ public class MainContador{
             task1.join();
         } catch (InterruptedException e) {
             System.out.println("Algo ha salido mal en un join()");
-            Thread.currentThread().interrupt();
+            if (Thread.currentThread().isAlive()) {
+                Thread.currentThread().interrupt();
+            }
         } finally {
-            System.out.println(contador1.getValor());
+            System.out.println("Valor del contador: " + contador1.getValor());
         }
 
         task2.start();
@@ -33,10 +35,12 @@ public class MainContador{
             task2.join();
         } catch (InterruptedException e) {
             System.out.println("Algo ha salido mal en un join()");
-            Thread.currentThread().interrupt();
+            if (Thread.currentThread().isAlive()) {
+                Thread.currentThread().interrupt();
+            }
 
         }finally {
-            System.out.println(contador1.getValor());
+            System.out.println("Valor del contador: " + contador1.getValor());
         }
 
 
