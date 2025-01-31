@@ -6,4 +6,19 @@ package ejemplos.visibilidad;
  * Además, un método de instancia incrementar(int numero) que suma el número pasado por parámetro al atributo.
  * El atributo numero es visible entre hilos
  */
+public class EjemploVisible {
+    private volatile int numero;
+
+    public EjemploVisible(int numero) {
+        this.numero = numero;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void incrementar(int numero){
+        this.numero += numero;
+    }
+}
 
