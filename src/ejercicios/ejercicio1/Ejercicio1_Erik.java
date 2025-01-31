@@ -24,7 +24,7 @@ public class Ejercicio1_Erik implements Runnable {
         // Contamos el número de hilos activos
         ThreadGroup grupoActual = Thread.currentThread().getThreadGroup();
 
-        int hilosActivos = grupoActual.activeCount();;
+        int hilosActivos = grupoActual.activeCount();
         Thread[] arrayHilosActivos = new Thread[hilosActivos];
 
         // Obtenemos todos los hilos activos
