@@ -7,3 +7,4 @@ package ejemplos.memoriacompartida;
  * NOTA: hacer también este ejemplo con Runnable
  */
 
+
