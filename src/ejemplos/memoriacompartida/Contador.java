@@ -19,7 +19,6 @@ public class Contador {
     public int getValue(){
         return value;
     }
-
 }
 
 

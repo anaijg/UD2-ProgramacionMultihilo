@@ -7,3 +7,4 @@ package ejemplos.visibilidad;
  * El atributo numero es visible entre hilos
  */
 
+
