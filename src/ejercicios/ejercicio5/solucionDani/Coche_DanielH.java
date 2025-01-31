@@ -1,4 +1,4 @@
-package ejercicios.ejercicio5.daniel;
+package ejercicios.ejercicio5.solucionDani;
 
 public class Coche_DanielH extends Thread {
     private final String nombre;
