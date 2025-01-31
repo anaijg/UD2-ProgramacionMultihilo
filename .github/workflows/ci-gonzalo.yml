@@ -1,7 +1,7 @@
 name: CI Gonzalo 🍋 ¡El Push Legendario!
 
 on:
-  push:
+  pull_request:
     branches:
       - Gonzalo/0spol
 
