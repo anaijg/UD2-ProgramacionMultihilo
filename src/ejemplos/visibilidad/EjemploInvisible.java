@@ -1,5 +1,21 @@
 package ejemplos.visibilidad;
 
+public class EjemploInvisible {
+
+    private int numero;
+
+    public EjemploInvisible(int numero) {
+        this.numero = numero;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void incrementar(int numero){
+        this.numero = this.numero + numero;
+    }
+}
 /**
  * Clase EjemploVisibilidad
  * Tiene un atributo entero número que se inicializa en el constructor, y un getter.
