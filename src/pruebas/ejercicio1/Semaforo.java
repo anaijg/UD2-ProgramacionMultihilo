@@ -56,6 +56,8 @@ public class Semaforo implements Runnable {
     public static void main(String[] args) {
         Semaforo semaforo = new Semaforo();
         Thread hilo1 = new Thread(semaforo, "task1");
+
         hilo1.start();
+
     }
 }
