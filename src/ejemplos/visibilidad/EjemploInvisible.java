@@ -13,7 +13,6 @@ public class EjemploInvisible {
         this.numero = numero;
     }
 
-
     public int getNumero() {
         return numero;
     }
