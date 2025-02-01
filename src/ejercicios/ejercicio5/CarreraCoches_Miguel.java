@@ -2,15 +2,15 @@ package ejercicios.ejercicio5;
 
 import java.util.*;
 
-class Carrera_Coches_Miguel extends Thread {
+class Carrera_Coches extends Thread {
     private final String nombre;
     private final int velocidad; // en metros por segundo
     private int distanciaRecorrida = 0;
     private final int distanciaTotal;
     private static boolean carreraTerminada = false;
-    public static final List<Carrera_Coches_Miguel> ganadores = new ArrayList<>();
+    public static final List<Carrera_Coches> ganadores = new ArrayList<>();
 
-    public Carrera_Coches_Miguel(String nombre, int velocidad, int distanciaTotal) {
+    public Carrera_Coches(String nombre, int velocidad, int distanciaTotal) {
         this.nombre = nombre;
         this.velocidad = velocidad;
         this.distanciaTotal = distanciaTotal;
@@ -73,7 +73,7 @@ class Carrera_Coches_Miguel extends Thread {
     }
 }
 
-public class MainCarreraCoches {
+public class CarreraCoches_Miguel {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -84,23 +84,23 @@ public class MainCarreraCoches {
         int numCoches = scanner.nextInt();
         if (numCoches > 4) numCoches = 4;
 
-        List<Carrera_Coches_Miguel> coches = new ArrayList<>();
+        List<Carrera_Coches> coches = new ArrayList<>();
 
         for (int i = 1; i <= numCoches; i++) {
             System.out.print("Introduce la velocidad del coche " + i + " (metros/segundo): ");
             int velocidad = scanner.nextInt();
-            coches.add(new Carrera_Coches_Miguel("Coche " + i, velocidad, distanciaTotal));
+            coches.add(new Carrera_Coches("Coche " + i, velocidad, distanciaTotal));
         }
 
         System.out.println("\n¡Comienza la carrera!");
         System.out.println("===================");
 
-        for (Carrera_Coches_Miguel coche : coches) {
+        for (Carrera_Coches coche : coches) {
             coche.start();
         }
 
         // Esperar a que todos los hilos terminen
-        for (Carrera_Coches_Miguel coche : coches) {
+        for (Carrera_Coches coche : coches) {
             try {
                 coche.join();
             } catch (InterruptedException e) {
@@ -111,12 +111,12 @@ public class MainCarreraCoches {
         System.out.println("\n¡Carrera finalizada!");
 
         // Determinar qué hacer en caso de empate
-        List<Carrera_Coches_Miguel> ganadores = Carrera_Coches_Miguel.ganadores;
+        List<Carrera_Coches> ganadores = Carrera_Coches.ganadores;
         if (ganadores.size() == 1) {
             System.out.println("¡" + ganadores.getFirst().getNombre() + " ha ganado la carrera!");
         } else {
             System.out.println("\n⚠️ Empate entre los siguientes coches:");
-            for (Carrera_Coches_Miguel coche : ganadores) {
+            for (Carrera_Coches coche : ganadores) {
                 System.out.println("➡️ " + coche.getNombre());
             }
 
@@ -130,14 +130,14 @@ public class MainCarreraCoches {
             switch (opcion) {
                 case 1 -> {
                     System.out.print("¡Ganadores: ");
-                    for (Carrera_Coches_Miguel coche : ganadores) {
+                    for (Carrera_Coches coche : ganadores) {
                         System.out.print(coche.getNombre() + " ");
                     }
                     System.out.println("!");
                 }
                 case 2 -> {
                     Random random = new Random();
-                    Carrera_Coches_Miguel ganadorSorteo = ganadores.get(random.nextInt(ganadores.size()));
+                    Carrera_Coches ganadorSorteo = ganadores.get(random.nextInt(ganadores.size()));
                     System.out.println("¡" + ganadorSorteo.getNombre() + " ha sido elegido al azar como el ganador!");
                 }
                 case 3 -> {
@@ -151,7 +151,7 @@ public class MainCarreraCoches {
                     } else {
                         System.out.println("❌ Opción inválida. Se declaran todos ganadores.");
                         System.out.print("¡Ganadores: ");
-                        for (Carrera_Coches_Miguel coche : ganadores) {
+                        for (Carrera_Coches coche : ganadores) {
                             System.out.print(coche.getNombre() + " ");
                         }
                         System.out.println("!");
@@ -163,7 +163,7 @@ public class MainCarreraCoches {
 
         // Mostrar estado final de los coches después de la carrera
         System.out.println("\nEstado final de los coches:");
-        for (Carrera_Coches_Miguel coche : coches) {
+        for (Carrera_Coches coche : coches) {
             coche.mostrarEstadoFinal();
         }
 
