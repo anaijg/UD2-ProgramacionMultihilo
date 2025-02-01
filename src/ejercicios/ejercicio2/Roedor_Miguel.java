@@ -28,7 +28,6 @@ public class Roedor_Miguel implements Runnable {
         } catch (InterruptedException e) {
             System.out.println("Interrupted exception del método sleep.");
             Thread.currentThread().interrupt();
-            return;
         }
     }
 
