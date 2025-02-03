@@ -9,7 +9,7 @@ public class TaskInvisible implements Runnable {
 
     @Override
     public void run() {
-        EjemploInvisible ejemplo = new EjemploInvisible(0);
+        EjemploVisible ejemplo = new EjemploVisible(0);
         ejemplo.incrementar(5);
         System.out.println(Thread.currentThread().getName() + " - Valor del ejemplo: " + ejemplo.getNumero());
     }
