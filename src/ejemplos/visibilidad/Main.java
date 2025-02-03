@@ -3,60 +3,34 @@ package ejemplos.visibilidad;
 
 public class Main {
 
-    private static int contador = 0; // Variable compartida entre hilos
-
     public static void main(String[] args) throws InterruptedException {
-
+        EjemploVisible ejemploVisible = new EjemploVisible(0);
         // Crear dos hilos visibles
-        Thread hilo1 = new Thread(new Worker(true));
-        Thread hilo2 = new Thread(new Worker(true));
+        Thread invisible_hilo1 = new Thread(new TaskInvisible());
+        Thread invisible_hilo2 = new Thread(new TaskInvisible());
 
         // Crear dos hilos invisibles
-        Thread hilo3 = new Thread(new Worker(false));
-        Thread hilo4 = new Thread(new Worker(false));
+        Thread visible_hilo1 = new Thread(new TaskVisible(ejemploVisible));
+        Thread visible_hilo2 = new Thread(new TaskVisible(ejemploVisible));
 
         // Iniciar los hilos
-        hilo1.start();
-        hilo2.start();
-        hilo3.start();
-        hilo4.start();
+        invisible_hilo1.start();
+        invisible_hilo2.start();
+        visible_hilo1.start();
+        visible_hilo2.start();
 
-        // Esperar que los hilos terminen
-        hilo1.join();
-        hilo2.join();
-        hilo3.join();
-        hilo4.join();
+
+        try {
+            invisible_hilo1.join();
+            invisible_hilo2.join();
+            visible_hilo1.join();
+            visible_hilo2.join();
+
+        } catch (InterruptedException e) {
+            System.out.println("Algo ha ido mal en algún join()");
+        }
 
         // Imprimir el resultado final
-        System.out.println("Valor final del contador: " + contador);
-    }
-
-    // Worker que incrementa el contador dependiendo de su visibilidad
-    static class Worker implements Runnable {
-
-        private final boolean visible;
-
-        public Worker(boolean visible) {
-            this.visible = visible;
-        }
-
-        @Override
-        public void run() {
-            // Si el hilo es visible, se sincroniza para evitar problemas de visibilidad
-            if (visible) {
-                synchronized (Main.class) {
-                    for (int i = 0; i < 1000; i++) {
-                        contador++;
-                    }
-                }
-            } else {
-                // Si el hilo es invisible, simplemente incrementa el contador sin sincronización
-                for (int i = 0; i < 1000; i++) {
-                    contador++;
-                }
-            }
-        }
+        System.out.println("Valor final del ejemplo visible: " + ejemploVisible.getNumero());
     }
 }
-
-

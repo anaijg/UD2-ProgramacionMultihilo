@@ -1,4 +1,4 @@
-package ejemplos.visibilidad;
+package ejemplos.Miguel_Ejemplo_Prueba_Visible_voltil_atomicidad_sincronizado;
 
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
