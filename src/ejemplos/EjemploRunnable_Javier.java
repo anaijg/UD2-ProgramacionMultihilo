@@ -1,4 +1,4 @@
-package Ejemplos;
+package ejemplos;
 
 public class EjemploRunnable_Javier implements Runnable {
 

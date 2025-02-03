@@ -1,4 +1,4 @@
-package Ejemplos;
+package ejemplos;
 
 public class EjemploThread_Javier extends Thread {
     @Override
