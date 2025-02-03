@@ -6,4 +6,18 @@ package ejemplos.memoriacompartida;
  * Sobreescribe el méto-do run() llamando al método incrementar del contador.
  * NOTA: hacer también este ejemplo con Runnable
  */
+public class HiloContador implements Runnable
+{
+    private final Contador contador;
 
+    public HiloContador(Contador contador)
+    {
+        this.contador = contador;
+    }
+
+    @Override
+    public void run()
+    {
+        contador.incrementar();
+    }
+}
