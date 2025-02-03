@@ -1,9 +1,9 @@
 package ejemplos.visibilidad;
 
-public class EjemploVisible {
-    private volatile int numero;
+public class EjemploVisibilidad {
+    private int numero;
 
-    public EjemploVisible(int numeroInicial) {
+    public EjemploVisibilidad(int numeroInicial) {
         this.numero = numeroInicial;
     }
 
@@ -11,7 +11,7 @@ public class EjemploVisible {
         return numero;
     }
 
-    public synchronized void incrementar(int numero) {
+    public void incrementar(int numero) {
         this.numero += numero;
     }
 }
