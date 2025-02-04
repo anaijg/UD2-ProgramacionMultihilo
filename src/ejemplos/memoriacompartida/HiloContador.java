@@ -7,3 +7,20 @@ package ejemplos.memoriacompartida;
  * NOTA: hacer también este ejemplo con Runnable
  */
 
+class HiloContador extends Thread {
+    private final Contador contador;
+
+
+    HiloContador(Contador contador) {
+        this.contador = contador;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 0; i < 10; i++) { // Simula várias execuções
+            contador.incrementar();
+            System.out.println(Thread.currentThread().getName() + " - Contador: " + contador.getValor());
+        }
+    }
+}
+

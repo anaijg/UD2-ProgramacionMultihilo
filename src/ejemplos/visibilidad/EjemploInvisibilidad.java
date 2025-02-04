@@ -4,13 +4,14 @@ package ejemplos.visibilidad;
  * Clase EjemploVisibilidad
  * Tiene un atributo entero número que se inicializa en el constructor, y un getter.
  * Además, un método de instancia incrementar(int numero) que suma el número pasado por parámetro al atributo.
- * El atributo numero es visible entre hilos
+ * El atributo numero es invisible entre hilos
  */
 
-class EjemploVisibilidad{
-    private volatile int numero;
+public class EjemploInvisibilidad {
+    // volatile garantiza visibilidad entre threads:
+    private int numero;
 
-    public EjemploVisibilidad(int numero) {
+    public EjemploInvisibilidad(int numero) {
         this.numero = numero;
     }
 
@@ -18,8 +19,7 @@ class EjemploVisibilidad{
         return numero;
     }
 
-    public synchronized void incrementar(int numero_incremento) {
+    public synchronized void incrementar(int numero_incremento){
         this.numero += numero_incremento;
     }
 }
-
