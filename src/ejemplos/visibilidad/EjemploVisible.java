@@ -7,3 +7,18 @@ package ejemplos.visibilidad;
  * El atributo numero es visible entre hilos
  */
 
+public class EjemploVisible {
+    private volatile int numero;
+
+    public EjemploVisible(int numeroInicial) {
+        this.numero = numeroInicial;
+    }
+    public synchronized void incrementar(int numero) {
+        this.numero += numero;
+    }
+    public int getNumero() {
+        return numero;
+    }
+
+
+}
