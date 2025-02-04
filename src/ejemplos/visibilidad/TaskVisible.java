@@ -8,10 +8,14 @@ import java.util.Random;
  */
 public class TaskVisible implements Runnable
 {
+    private EjemploVisible ejemploVisible;
+    public TaskVisible(EjemploVisible ej)
+    {
+        this.ejemploVisible = ej;
+    }
     @Override
     public void run()
     {
-        EjemploVisible ejemploVisible = new EjemploVisible(0);
         ejemploVisible.incrementar(5);
         System.out.println(Thread.currentThread().getName() + " - " + ejemploVisible.getNumero());
     }

@@ -8,7 +8,7 @@ package ejemplos.visibilidad;
  */
 public class EjemploInvisible
 {
-    private int numero;
+    private volatile int numero;
 
     public EjemploInvisible(int numero)
     {

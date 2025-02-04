@@ -8,7 +8,7 @@ package ejemplos.visibilidad;
  */
 public class EjemploVisible
 {
-    public int numero;
+    private int numero;
 
     public EjemploVisible(int numero)
     {
@@ -20,7 +20,7 @@ public class EjemploVisible
         return this.numero;
     }
 
-    public void incrementar(int numero)
+    public synchronized void incrementar(int numero)
     {
         this.numero += numero;
     }

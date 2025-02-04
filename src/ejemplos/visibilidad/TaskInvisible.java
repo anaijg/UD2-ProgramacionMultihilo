@@ -8,10 +8,14 @@ import java.util.Random;
  */
 public class TaskInvisible implements Runnable
 {
+    private EjemploInvisible ejemploInvisible;
+    public TaskInvisible(EjemploInvisible ej)
+    {
+        this.ejemploInvisible = ej;
+    }
     @Override
     public void run()
     {
-        EjemploInvisible ejemploInvisible = new EjemploInvisible(0);
         ejemploInvisible.incrementar(5);
         System.out.println(Thread.currentThread().getName() + " - " + ejemploInvisible.getNumero());
     }
