@@ -6,7 +6,6 @@ package ejemplos.memoriacompartida;
  * Sobreescribe el méto-do run() llamando al método incrementar del contador.
  * NOTA: hacer también este ejemplo con Runnable
  */
-
 public class HiloContador extends Thread {
     private final Contador contador;
 
@@ -20,4 +19,3 @@ public class HiloContador extends Thread {
         System.out.println("hilos " + Thread.currentThread().getName()+" contador "+contador.getValor());
     }
 }
-
