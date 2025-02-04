@@ -98,7 +98,6 @@ public class CarreraCoches_AlejandroTorres {
             }
             System.out.println("===================");
 
-
             for (Coche_AlejandroTorres coche : coches) {
                 if (coche.getDistanciaRecorrida() >= distanciaTotal) {
                     System.out.println("\n¡" + coche.getNombre() + " ha ganado la carrera!");
@@ -108,7 +107,7 @@ public class CarreraCoches_AlejandroTorres {
             }
 
             try {
-                Thread.sleep(1000); // Espera 1 segundo antes de la próxima actualización
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 System.out.println("La carrera fue interrumpida.");
                 Thread.currentThread().interrupt();

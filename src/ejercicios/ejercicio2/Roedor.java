@@ -23,7 +23,6 @@ public class Roedor implements Runnable{
             System.out.println(color.getCode() + "El ratón " + nombre + emoji.getEmoji() + " ha terminado de alimentarse.");
         } catch (InterruptedException e) {
             System.out.println("Interrupted exception del método sleep.");
-
             Thread.currentThread().interrupt();
         }
     }
@@ -36,7 +35,6 @@ public class Roedor implements Runnable{
 
 class MainRoedores{
     public static void main(String[] args) {
-
         Roedor taskFievel = new Roedor("Fievel", 4, Color.BLACK, Emoji.RAT);
         Roedor taskJerry = new Roedor("Jerry", 5, Color.GREEN, Emoji.CHIPMUNK);
         Roedor taskPinky = new Roedor("Pinky", 3, Color.RED, Emoji.MOUSE);
