@@ -7,10 +7,16 @@ package ejemplos.visibilidad;
 class Main {
     public static void main(String[] args) {
         TaskInvisible task = new TaskInvisible();
-        Thread hilo1 = new Thread(task.runnable, "hilo1");
-        Thread hilo2 = new Thread(task.runnable2, "hilo2");
+        Thread hilo1Invisible = new Thread(task.runnableInvisible, "hilo invisible 1");
+        Thread hilo2Invisible = new Thread(task.runnableInvisible, "hilo invisible 2");
 
-        hilo1.start();
-        hilo2.start();
+        Thread hilo1Visible = new Thread(task.runnableVisible, "hilo visible 1");
+        Thread hilo2Visible = new Thread(task.runnableVisible, "hilo visible 2");
+
+        hilo1Invisible.start();
+        hilo2Invisible.start();
+        hilo1Visible.start();
+        hilo2Visible.start();
+
     }
 }

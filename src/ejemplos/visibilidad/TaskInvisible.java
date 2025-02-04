@@ -9,7 +9,7 @@ import java.util.Random;
 
 class TaskInvisible {
 
-    Runnable runnable = () -> {
+    Runnable runnableInvisible = () -> {
         EjemploInvisible ejemploInvisible = new EjemploInvisible(5);
         System.out.println(Thread.currentThread().getName() + " " + ejemploInvisible.getNumero());
     };
@@ -19,7 +19,7 @@ class TaskInvisible {
      * Implementa run(), donde se crea un ejemploVisibilidad y se incrementa en cinco y muestra el nombre del hilo y el valor resultante.
      */
 
-    Runnable runnable2 = () -> {
+    Runnable runnableVisible = () -> {
         EjemploVisible ejemploVisible = new EjemploVisible();
         ejemploVisible.incrementar(5);
         System.out.println(Thread.currentThread().getName() + " " + ejemploVisible.getNumero());
