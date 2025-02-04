@@ -1,5 +1,16 @@
 package ejemplos.memoriacompartida;
 
+public class HiloContador extends Thread {
+
+    public final Contador contador;
+
+    public HiloContador(Contador contador) {
+        this.contador = contador;
+    }
+    public void run() {
+        contador.incrementar();
+    }
+}
 /**
  * Clase Hilocontador, que hereda de Thread
  * tiene una constante de tipo Contador que se inicializa con un Contador pasado en el constructor.
