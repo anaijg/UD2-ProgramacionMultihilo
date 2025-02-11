@@ -1,6 +1,7 @@
-package ejemplos.memoriacompartida;
+package ejemplos.memoriacompartida.runable;
 
-public class HiloContador extends Thread {
+
+public class HiloContador implements Runnable {
 
     private final Contador contador;
 
