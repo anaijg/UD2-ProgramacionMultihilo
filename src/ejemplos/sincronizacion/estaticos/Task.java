@@ -1,7 +1,7 @@
 package ejemplos.sincronizacion.estaticos;
 
 public class Task implements Runnable{
-    MiClase miClase = new MiClase();
+    MiClase miClase;
 
     public Task(MiClase miClase) {
         this.miClase = miClase;
