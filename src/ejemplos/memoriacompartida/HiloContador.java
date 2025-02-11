@@ -27,3 +27,16 @@ class HiloContadorRunnable implements Runnable {
     }
 }
 
+public class HiloContador extends Thread{
+    private final Contador contador;
+
+    public HiloContador(Contador contador) {
+        this.contador = contador;
+    }
+
+    @Override
+    public void run() {
+        contador.incrementar();
+    }
+}
+
