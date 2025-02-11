@@ -7,7 +7,7 @@ public class Main {
         MyThread hilo1 = new MyThread(contador);
         MyThread hilo2 = new MyThread(contador);
 
-        // los iniciamos, uno por uno y esperando que finalicen.
+        // los iniciamos, esperando cada hilo que termine el anterior
         hilo1.start();
         try {
             hilo1.join();
@@ -25,7 +25,7 @@ public class Main {
             System.err.println("Error");
         }
 
-        System.out.println("El contador de hilos, asciende a: " + contador.getValor());
+        System.out.println("Contador: " + contador.getValor());
 
     }
 }

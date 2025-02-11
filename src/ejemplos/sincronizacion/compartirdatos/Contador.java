@@ -1,13 +1,11 @@
 package ejemplos.sincronizacion.compartirdatos;
 
 public class Contador {
-
-    public int valor;
+    private int valor;
 
     public void incrementar() {
         valor++;
     }
-
     public void decrementar() {
         valor--;
     }

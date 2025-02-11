@@ -1,4 +1,6 @@
-package ejemplos.memoriacompartida;
+package ejemplos.memoriacompartida.temporalCarlos;
+
+
 
 /**
  * Clase Hilocontador, que hereda de Thread
@@ -7,16 +9,17 @@ package ejemplos.memoriacompartida;
  * NOTA: hacer también este ejemplo con Runnable
  */
 
-public class HiloContador extends Thread{
+class HiloContador implements Runnable {
+
     private final Contador contador;
 
-    public HiloContador(Contador contador) {
+    HiloContador(Contador contador) {
         this.contador = contador;
     }
 
     @Override
     public void run() {
-        contador.incrementar();
+        contador.increment();
     }
 }
 

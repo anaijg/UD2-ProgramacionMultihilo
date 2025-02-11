@@ -5,14 +5,16 @@ package ejemplos.memoriacompartida;
  * - atributo privado entero valor, con un getter
  * - método de instancia incrementar(), que incrementa valor en una unidad
  */
-class Contador {
-    private int value = 0;
+public class Contador {
+    private int valor;
 
-    public void increment() {
-        value++;
+    public int getValor() {
+        return valor;
     }
 
-    public int getValue() {
-        return value;
+    public void incrementar() {
+        valor++;
     }
+
+
 }
