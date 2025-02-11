@@ -8,7 +8,7 @@ package ejemplos.memoriacompartida;
  */
 
 class HiloContador extends Thread {
-    Contador contador;
+    private final Contador contador;
 
     public HiloContador(Contador contador) {
         this.contador = contador;
