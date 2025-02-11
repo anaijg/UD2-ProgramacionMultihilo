@@ -13,7 +13,7 @@ public class Corredor extends Thread{
     @Override
     public void run() {
         try {
-            System.out.println("soy el corredor"+getName() + ", corriendo...");
+            System.out.println("soy el corredor "+getName() + ", corriendo...");
             Thread.sleep(random.nextInt(2000));
             System.out.println("termine");
         } catch (InterruptedException e) {
