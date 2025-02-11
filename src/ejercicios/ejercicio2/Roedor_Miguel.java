@@ -37,7 +37,7 @@ public class Roedor_Miguel implements Runnable {
     }
 }
 
-class MainRoedores {
+class MainRoedores_Miguel {
     public static void main(String[] args) {
         // Creamos los roedores
         Roedor_Miguel fievel = new Roedor_Miguel("Fievel", 4, Color.CYAN, Emoji.RAT);

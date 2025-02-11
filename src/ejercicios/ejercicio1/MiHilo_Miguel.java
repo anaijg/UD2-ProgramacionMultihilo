@@ -1,6 +1,6 @@
 package ejercicios.ejercicio1;
 
-class InfoHilo implements Runnable {
+class InfoHilo_miguel implements Runnable {
     @Override
     public void run() {
         Thread hiloActual = Thread.currentThread();
