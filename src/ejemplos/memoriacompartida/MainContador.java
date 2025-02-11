@@ -12,27 +12,20 @@ package ejemplos.memoriacompartida;
 
 public class MainContador {
     public static void main(String[] args) {
-        var contador = new Contador();
-        HiloContador task1 = new HiloContador(contador);
-        HiloContador task2 = new HiloContador(contador);
+        Contador contador = new Contador();
+        HiloContador hilo1 = new HiloContador(contador);
+        HiloContador hilo2 = new HiloContador(contador);
+        hilo1.start();
+        hilo2.start();
 
         try {
-            task1.start();
-            task1.join();
-            task2.start();
-            task2.join();
-
-            System.out.println("Contador en: " + contador.getValor());
-
+            hilo1.join();
+            hilo2.join();
         } catch (InterruptedException e){
-            System.out.println("Algo ha ido mal en algún join()");
-            ThreadGroup grupoActual = Thread.currentThread().getThreadGroup();
-            int hilosActivos = grupoActual.activeCount();
-            Thread[] arrayHilosActivos = new Thread[hilosActivos];
-
-            for (int i = 0; i < hilosActivos; i++) {
-                arrayHilosActivos[i].interrupt();
-            }
+            System.out.println("Vamos mal");
+            Thread.currentThread().interrupt();
+        } finally {
+            System.out.println("Valor final del contador: " + contador.getValor());
         }
     }
 }
