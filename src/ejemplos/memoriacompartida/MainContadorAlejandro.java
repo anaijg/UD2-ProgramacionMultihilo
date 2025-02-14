@@ -10,11 +10,11 @@ package ejemplos.memoriacompartida;
  * - Finalmente, tanto si salta la excepción como si no, se muestra el valor del contador.
  */
 
-public class MainContador{
+public class MainContadorAlejandro {
     public static void main(String[] args) {
-        Contador contador = new Contador();
-        Thread hilo1 = new HiloContador(contador);
-        Thread hilo2 = new HiloContador(contador);
+        ContadorAlejandro contadorAlejandro = new ContadorAlejandro();
+        Thread hilo1 = new HiloContadorAlejandro(contadorAlejandro);
+        Thread hilo2 = new HiloContadorAlejandro(contadorAlejandro);
         hilo1.start();
         hilo2.start();
         try {
@@ -22,7 +22,7 @@ public class MainContador{
             hilo2.join();
         } catch (InterruptedException e) {
             System.out.println("Algo ha ido mal en algun join()");
-            System.out.println(contador.getValor());
+            System.out.println(contadorAlejandro.getValor());
         }
 
         if (hilo1.isAlive()) {
@@ -31,6 +31,6 @@ public class MainContador{
         if (hilo2.isAlive()) {
             hilo2.interrupt();
         }
-        System.out.println(contador.getValor());
+        System.out.println(contadorAlejandro.getValor());
     }
 }

@@ -7,15 +7,15 @@ package ejemplos.memoriacompartida;
  * NOTA: hacer también este ejemplo con Runnable
  */
 
-public class HiloContador extends Thread{
-    private final Contador contador;
+public class HiloContadorAlejandro extends Thread{
+    private final ContadorAlejandro contadorAlejandro;
 
-    public HiloContador(Contador contador) {
-        this.contador = contador;
+    public HiloContadorAlejandro(ContadorAlejandro contadorAlejandro) {
+        this.contadorAlejandro = contadorAlejandro;
     }
 
     @Override
     public void run() {
-        contador.incrementar();
+        contadorAlejandro.incrementar();
     }
 }

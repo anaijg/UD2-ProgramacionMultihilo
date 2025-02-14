@@ -7,10 +7,10 @@ package ejemplos.visibilidad;
  * El atributo numero es invisible entre hilos
  */
 
-public class EjemploInvisible{
+public class EjemploInvisibleAlejandro {
     private int valor;
 
-    public EjemploInvisible(int valor) {
+    public EjemploInvisibleAlejandro(int valor) {
         this.valor = valor;
     }
 

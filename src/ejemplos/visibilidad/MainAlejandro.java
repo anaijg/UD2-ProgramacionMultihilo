@@ -5,15 +5,15 @@ package ejemplos.visibilidad;
  *
  */
 
-public class Main{
+public class MainAlejandro {
     public static void main(String[] args) {
-        EjemploInvisible ejemploInvisible = new EjemploInvisible(0);
-        EjemploVisible ejemploVisible = new EjemploVisible(0);
-        Thread hiloInvisible1 = new Thread(new TaskInvisible(ejemploInvisible),"hilo Invisible 1");
-        Thread hiloInvisible2 = new Thread(new TaskInvisible(ejemploInvisible),"hilo Invisible 2");
+        EjemploInvisibleAlejandro ejemploInvisibleAlejandro = new EjemploInvisibleAlejandro(0);
+        EjemploVisibleAlejandro ejemploVisibleAlejandro = new EjemploVisibleAlejandro(0);
+        Thread hiloInvisible1 = new Thread(new TaskInvisibleAlejandro(ejemploInvisibleAlejandro),"hilo Invisible 1");
+        Thread hiloInvisible2 = new Thread(new TaskInvisibleAlejandro(ejemploInvisibleAlejandro),"hilo Invisible 2");
 
-        Thread hiloVisible1 = new Thread(new TaskVisible(ejemploVisible), "Hilo visible 1");
-        Thread hiloVisible2 = new Thread(new TaskVisible(ejemploVisible), "Hilo visible 2");
+        Thread hiloVisible1 = new Thread(new TaskVisibleAlejandro(ejemploVisibleAlejandro), "Hilo visible 1");
+        Thread hiloVisible2 = new Thread(new TaskVisibleAlejandro(ejemploVisibleAlejandro), "Hilo visible 2");
 
         hiloInvisible1.start();
         try {

@@ -7,10 +7,10 @@ package ejemplos.visibilidad;
  * El atributo numero es visible entre hilos
  */
 
-public class EjemploVisible{
+public class EjemploVisibleAlejandro {
     private volatile int valor;
 
-    public EjemploVisible(int valor) {
+    public EjemploVisibleAlejandro(int valor) {
         this.valor = valor;
     }
 
