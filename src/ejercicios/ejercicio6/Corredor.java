@@ -3,7 +3,6 @@ package ejercicios.ejercicio6;
 import java.util.Random;
 
 public class Corredor extends Thread{
-
     public Corredor(String name) {
         super(name);
 

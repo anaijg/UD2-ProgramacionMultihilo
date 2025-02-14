@@ -32,5 +32,7 @@ public class MainContador{
             Thread.currentThread().interrupt();
         }
         System.out.println("Contador: " + contador.getValor());
+
+
     }
 }
