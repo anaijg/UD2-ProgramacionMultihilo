@@ -1,4 +1,4 @@
-package ejercicios.ejercicio5;
+package ejercicios.ejercicio5noentra.solucionJohan;
 
 import java.util.*;
 

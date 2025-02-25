@@ -1,4 +1,4 @@
-    package ejercicios.ejercicio5;
+    package ejercicios.ejercicio5noentra.solucionJohan;
 
     public class Piloto {
         private final String nombre;
