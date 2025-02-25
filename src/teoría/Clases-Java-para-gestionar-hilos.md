@@ -81,26 +81,26 @@ Cuando un proceso tiene más hilos, el proceso no finaliza su ejecución hasta q
 
 # Métodos de la clase `Thread`
 
-| Método                          | Descripción                                                                 |
-|---------------------------------|-----------------------------------------------------------------------------|
-| `start()`                       | Inicia la ejecución del hilo.                                               |
-| `run()`                         | Contiene el código que se ejecutará en el hilo.                             |
-| `sleep(long millis)`            | Hace que el hilo actual se duerma durante el tiempo especificado en milisegundos. |
-| `join()`                        | Espera a que el hilo en el que se llama termine.                            |
-| `interrupt()`                   | Interrumpe el hilo.                                                         |
-| `isAlive()`                     | Devuelve `true` si el hilo está en ejecución.                               |
-| `getName()`                     | Devuelve el nombre del hilo.                                                |
-| `setName(String name)`          | Establece el nombre del hilo.                                               |
-| `getPriority()`                 | Devuelve la prioridad del hilo.                                             |
-| `setPriority(int priority)`     | Establece la prioridad del hilo.                                            |
-| `getId()`                       | Devuelve el identificador único del hilo.                                   |
-| `getState()`                    | Devuelve el estado del hilo.                                                |
-| `currentThread()`               | Devuelve una referencia al hilo que se está ejecutando actualmente.         |
-| `yield()`                       | Sugiere al planificador de hilos que ceda el uso del procesador a otros hilos. |
-| `setDaemon(boolean on)`         | Marca el hilo como un hilo de demonio o no.                                 |
-| `isDaemon()`                    | Devuelve `true` si el hilo es un hilo de demonio.                           |
-| `checkAccess()`                 | Determina si el hilo actual tiene permiso para modificar el hilo.           |
-| `interrupted()`                 | Verifica si el hilo actual ha sido interrumpido.                            |
+| Método                      | Descripción                                                                       |
+|-----------------------------|-----------------------------------------------------------------------------------|
+| `start()`                   | Inicia la ejecución del hilo.                                                     |
+| `run()`                     | Contiene el código que se ejecutará en el hilo.                                   |
+| `sleep(long millis)`        | Hace que el hilo actual se duerma durante el tiempo especificado en milisegundos. |
+| `join()`                    | Espera a que el hilo en el que se llama termine.                                  |
+| `interrupt()`               | Interrumpe el hilo.                                                               |
+| `isAlive()`                 | Devuelve `true` si el hilo está en ejecución.                                     |
+| `getName()`                 | Devuelve el nombre del hilo.                                                      |
+| `setName(String name)`      | Establece el nombre del hilo.                                                     |
+| `getPriority()`             | Devuelve la prioridad del hilo.                                                   |
+| `setPriority(int priority)` | Establece la prioridad del hilo.                                                  |
+| ~~`getId()`~~               | ~~Devuelve el identificador único del hilo.~~                                     |
+| ~~`getState()`~~              | ~~Devuelve el estado del hilo.~~                                                      |
+| `currentThread()`           | Devuelve una referencia al hilo que se está ejecutando actualmente.               |
+| ~~`yield()`~~                   | ~~Sugiere al planificador de hilos que ceda el uso del procesador a otros hilos.~~    |
+| ~~`setDaemon(boolean on)`~~     | ~~Marca el hilo como un hilo de demonio o no.~~                                       |
+| ~~`isDaemon()`~~                | ~~Devuelve `true` si el hilo es un hilo de demonio.~~                                 |
+| ~~`checkAccess()`~~             | ~~Determina si el hilo actual tiene permiso para modificar el hilo.~~                 |
+| ~~`interrupted()`~~             | ~~Verifica si el hilo actual ha sido interrumpido.~~                                  |
 
 # Constructores de la clase `Thread`
 
@@ -217,27 +217,6 @@ Para generar números entre `1` y un límite superior (`50`)
       `Math.random()*49+1`  
 Para generar números en un rango predeterminado [200, 500]  
       `Math.random()*300+200`
-
-3. **Usar `ThreadLocalRandom`**  
-La clase `java.util.Random` no tiene buen rendimiento en entornos multihilo.
-
-Para evitar esa limitación, Java introdujo la clase `java.util.concurrent.ThreadLocalRandom` para generar números aleatorios en entornos multihilo.  
-
-Si llamamos al método `ThreadLocalRandom.current()` nos devolverá la instancia de `ThreadLocalRandom` para el hilo actual. A partir de aquí podemos generar valores aleatorios llamando a los métodos de la clase con la instancia obtenida.  
-
-- Para generar valores enteros sin límite:
-````java
-      int unboundedRandomValue = ThreadLocalRandom.current().nextInt();
-````
-- Para generar valores enteros en un rango dato, es decir, con un límite superior e inferior [0, 100[:  
-````java
-      int boundedRandomValue = ThreadLocalRandom.current().nextInt(0, 100);
-````
-Al igual que con Random, `0` está incluido en el rango mientras que `100` no.  
-
-También podemos generar otros tipos de datos como `Long` y `Double` llamando a los métodos `nextLong()` y `nextDouble()` de forma similar a los ejemplos anteriores.  
-
-La clase `ThreadLocalRandom` hereda de `Random`, por lo que comparten muchos métodos.
 
 >**Ejemplo 3.** `SimulacionRestaurante.java`
 > Este ejemplo simula un restaurante donde:
